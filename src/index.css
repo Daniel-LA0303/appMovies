@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+
+}
+body{
+  background-color: #3f3f3f;
+}
+.container{
+  /* width: 70%; */
+  /* margin: 0 auto; */
+}
+.slick-slide > div{
+  margin: 0 10px;
+}
+.slick-list{
+  margin: 0 -10px;
+}
+
+.card{
+  /* border: 1px solid #fff; */
+  /* background-color: black; */
+  border-radius: 8px;
+  /* overflow: hidden; */
+  height: 270px;
+  color: white;
+}
+.card-top h1{
+  font-size: 1rem;
+  margin: 10px 20px;
+}
+.card-top > img{
+  /* width: 100%;
+  height: 100%;
+  object-fit: cover; */
+}
+/* .card-bottom{
+  margin: 10px 20px;
+} */
+.category{
+  /* position: relative; */
+}
+.category::before{
+  /* content: '';
+  background-size: red;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  height: 2px; */
+}
+
