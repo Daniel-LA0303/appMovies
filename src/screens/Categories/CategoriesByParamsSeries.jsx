@@ -1,8 +1,15 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 
 const CategoriesByParamsSeries = () => {
+
+  const {id} = useParams();
+
   return (
-    <div>CategoriesByParamsSeries</div>
+    <div>
+      <p>CategoriesByParamsSeries</p>
+      <p>{id}</p>
+    </div>
   )
 }
 

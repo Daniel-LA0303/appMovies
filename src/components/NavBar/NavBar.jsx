@@ -18,7 +18,7 @@ const NavBar = () => {
     <nav className="bg-white">
       <div className="flex items-center font-medium justify-between px-5 sm:px-10">
         <div className="flex justify-center w-auto">
-            <div className="z-50 p-3 sm:p-4 md:w-auto w-full flex justify-between items-center">
+            <div className="z-50 pr-2 py-2 sm:py-0 md:w-auto w-full flex justify-between items-center">
                 <div
                     className={`text-2xl sm:text-3xl md:hidden transition-all duration-500 pt-2 sm:pt-1 cursor-pointer ${open && 'fixed top-4'}`}
                     onClick={() => setOpen(!open)}
@@ -41,10 +41,12 @@ const NavBar = () => {
                 </ul>
                 <div className=" md:block hidden">{/* <Button /> */}</div>
                     {/*Mobile navbar */}
-                    <ul
-                        className={`md:hidden bg-white fixed z-40 w-full h-full bottom-0 py-10 pl-4
-                        duration-500 ${
-                            open ? "left-0 " : "left-[-100%]"
+                    <ul 
+                        // dans cete part il y a un error avec le "duration-100" en version movil navbar
+                        className={`md:hidden bg-white fixed z-40 w-full h-full bottom-0 py-10 pl-4 
+                        duration-100
+                         ${
+                            open ? " left-0" : "left-[-100%]"
                             }
                         `}
                     >
