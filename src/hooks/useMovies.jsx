@@ -1,11 +1,9 @@
-// import React from 'react'
-
 import { useEffect, useState } from "react"
-import movieAPITMDB from "../api/movieAPITMDB"
+import {movieAPITMDB} from "../api/movieAPITMDB"
 
 const useMovies = () => {
 
-    const[isLoading, setIsLoading] = useState(true);
+    const[isLoadingMovie, setIsLoading] = useState(true);
     const [moviesState, setMoviesState] = useState({
         nowPlaying: [],
         popular: [],
@@ -19,18 +17,19 @@ const useMovies = () => {
         const topRatedPromise = movieAPITMDB.get('/top_rated')
         const upcomingPromise = movieAPITMDB.get('/upcoming')
 
+
         const res = await Promise.all([
             nowPlayingPromise, 
             popularPromise, 
             topRatedPromise, 
-            upcomingPromise
+            upcomingPromise,
         ])
 
         setMoviesState({
             nowPlaying: res[0].data.results,
             popular: res[1].data.results,
             topRated: res[2].data.results,
-            upcoming: res[3].data.results,
+            upcoming: res[3].data.results
         })
 
         setIsLoading(false)
@@ -42,7 +41,7 @@ const useMovies = () => {
 
     return {
         ...moviesState,
-        isLoading,
+        isLoadingMovie,
     }
 }
 

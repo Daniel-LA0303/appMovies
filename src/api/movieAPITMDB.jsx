@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const movieAPITMDB = axios.create({
+export const movieAPITMDB = axios.create({
     baseURL: 'https://api.themoviedb.org/3/movie',
     params: {
         api_key: import.meta.env.VITE_API_KEY,
@@ -8,4 +8,20 @@ const movieAPITMDB = axios.create({
     }
 })
 
-export default movieAPITMDB;
+export const tvShowsAPITMDB = axios.create({
+    baseURL: 'https://api.themoviedb.org/3/tv',
+    params: {
+        api_key: import.meta.env.VITE_API_KEY,
+        language: 'en-EN'
+    }
+})
+
+export const genreAPITMDBLists = axios.create({
+    baseURL: 'https://api.themoviedb.org/3',
+    params: {
+        api_key: import.meta.env.VITE_API_KEY,
+        language: 'en-EN'
+    }
+})
+
+

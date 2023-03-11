@@ -16,7 +16,7 @@ const NavsLinks = () => {
         <div>
             <div className='px-3 text-left md:cursor-pointer group'>
                 <h1 
-                    className='py-7 flex justify-between items-center md:pr-0 pr-5 group'
+                    className='py-6 text-lg flex justify-between items-center md:pr-0 pr-5 group'
                     onClick={() => {heading !== link.name 
                         ? setHeading(link.name)
                         : setHeading('');
@@ -30,7 +30,7 @@ const NavsLinks = () => {
                         <FontAwesomeIcon icon={heading===link.name ? faChevronUp : faChevronDown}/>
                     </span>
                     <span
-                        className=' text-xl md:mt-1 md:ml-2  md:block hidden group-hover:rotate-180 duration-500'
+                        className='md:mt-1 md:ml-2  md:block hidden group-hover:rotate-180 duration-500'
                     >
                         <FontAwesomeIcon icon={faChevronDown}/>
                     </span>
@@ -42,19 +42,23 @@ const NavsLinks = () => {
                             <div className='py-2'>
                                 <div className='w-4 h-4 left-3 absolute m-1 bg-white rotate-45'></div>
                             </div>
-                            <div className='bg-white p-3.5 grid grid-cols-3 gap-10 duration-500'>
+                            <div className='bg-white p-5 w-auto duration-500'>
                                 {
                                     link.sublinks.map((mysublinks) => (
                                         <div>
-                                            <h1 className='text-lg font-semibold '>{mysublinks.Head}</h1>
-                                            {mysublinks.sublink.map(slink =>(
-                                                <li className='text-sm text-gray-600 my-2.5'>
-                                                    <a
-                                                        // to={slink.link}
-                                                        className=" hover:text-blue-800"    
-                                                    >{slink.name}</a>
-                                                </li>
-                                            ))}
+                                            <h1 className=' text-sm'>{mysublinks.Head}</h1>
+                                            {mysublinks.sublinkBoolean && (
+                                                <>
+                                                    {mysublinks.sublink.map(slink =>(
+                                                        <li className='text-xs text-gray-600 my-2.5'>
+                                                            <a
+                                                                // to={slink.link}
+                                                                className=" hover:text-blue-800"    
+                                                            >{slink.name}</a>
+                                                        </li>
+                                                    ))}
+                                                </>
+                                            )}
                                         </div>
                                     ))
                                 }
@@ -74,19 +78,22 @@ const NavsLinks = () => {
                 {link.sublinks.map((slinks) =>(
                     <div>
                         <div>
-                            <h1 
+                            <a 
                                 onClick={()=> subHeading !== slinks.Head 
                                     ? setSubHeading(slinks.Head) 
                                     : setSubHeading("")}
-                                className='py-4 pl-4 font-semibold md:pr-0 pr-5 flex justify-between items-center '
+                                className='py-4 pl-4 text-base md:pr-0 pr-5 flex justify-between items-center hover:text-blue-800'
                             >
                                 {slinks.Head}
-                                <span
-                                    className=' text-xl md:mt-1 md:ml-2 inline duration-500'
-                                >
-                                    <FontAwesomeIcon icon={subHeading===slinks.Head ? faChevronUp : faChevronDown}/>
-                                </span>
-                            </h1>
+                                {slinks.sublinkBoolean && (
+                                    <span
+                                        className=' text-base md:mt-1 md:ml-2 inline duration-500'
+                                    >
+                                        <FontAwesomeIcon icon={subHeading===slinks.Head ? faChevronUp : faChevronDown}/>
+                                    </span>
+                                )}
+
+                            </a>
                             <div
                                 className={`
                                     ${subHeading === slinks.Head ? 'md:hidden' : 'hidden'} duration-500`}
@@ -97,7 +104,7 @@ const NavsLinks = () => {
                                     >
                                         <a
                                             // to={slink.link}
-                                            className="hover:text-blue-800"
+                                            className="hover:text-blue-800 text-sm" 
                                         >{slink.name}</a>
                                     </li>
                                 ))}
@@ -107,8 +114,7 @@ const NavsLinks = () => {
                 ))}
             </div>
         </div>
-    ))
-    }
+    ))}
       </>
   )
 }
