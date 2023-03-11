@@ -8,6 +8,11 @@ import NavsLinks from "./NavsLinks";
 import Search from "../Search/Search";
 const NavBar = () => {
   const [open, setOpen] = useState(false);
+  
+  const stateNav = () => {
+    setOpen(!open)
+  }
+
 
   return (
     <nav className="bg-white">
@@ -15,7 +20,7 @@ const NavBar = () => {
         <div className="flex justify-center w-auto">
             <div className="z-50 p-3 sm:p-4 md:w-auto w-full flex justify-between items-center">
                 <div
-                    className=" text-2xl sm:text-3xl md:hidden transition-all duration-500 pt-2 sm:pt-1 cursor-pointer"
+                    className={`text-2xl sm:text-3xl md:hidden transition-all duration-500 pt-2 sm:pt-1 cursor-pointer ${open && 'fixed top-4'}`}
                     onClick={() => setOpen(!open)}
                 >
                     <FontAwesomeIcon className=" " icon={open ? faClose : faBars} />
@@ -27,26 +32,33 @@ const NavBar = () => {
                 <ul className="md:flex text-2xl sm:text-xl hidden items-center gap-8">
                     <li>
                         <Link to="/" className="py-6 px-3 inline-block text-lg">
-                        Home
+                            Home
                         </Link>
                     </li>
-                    <NavsLinks />
+                    <NavsLinks 
+                        stateNav={stateNav}
+                    />
                 </ul>
                 <div className=" md:block hidden">{/* <Button /> */}</div>
                     {/*Mobile navbar */}
                     <ul
-                        className={`md:hidden bg-white fixed z-40 w-full h-full bottom-0 py-24 pl-4
+                        className={`md:hidden bg-white fixed z-40 w-full h-full bottom-0 py-10 pl-4
                         duration-500 ${
                             open ? "left-0 " : "left-[-100%]"
                             }
                         `}
                     >
                         <li>
-                            <Link to="/" className="py-7 px-3 inline-block text-lg sm:text-xl">
+                            <Link 
+                                to="/" 
+                                className="pt-10 pb-5 px-3 inline-block text-lg sm:text-xl text-emerald-500"
+                                onClick={() => stateNav()}
+                                // onClick={() => setOpen(!open)}
+                            >
                                 Home
                             </Link>
                         </li>
-                        <NavsLinks />
+                        <NavsLinks stateNav={stateNav}/>
                 
                     </ul>
                 </div>

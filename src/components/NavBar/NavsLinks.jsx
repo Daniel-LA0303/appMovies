@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-const NavsLinks = () => {
+const NavsLinks = ({stateNav}) => {
 
     const[heading, setHeading] = useState("");
     const[subHeading, setSubHeading] = useState("");
@@ -16,16 +16,19 @@ const NavsLinks = () => {
         <div>
             <div className='px-3 text-left md:cursor-pointer group'>
                 <h1 
-                    className='py-6 text-lg flex justify-between items-center md:pr-0 pr-5 group'
-                    onClick={() => {heading !== link.name 
-                        ? setHeading(link.name)
-                        : setHeading('');
-                        setSubHeading('')
-                    }}
+                    className='py-4 text-lg flex justify-between items-center md:pr-0 pr-5 group'
                 >
-                    {link.name}
+                    <Link 
+                        to={link.linkName}
+                        onClick={() => stateNav()}
+                    >{link.name}</Link>
                     <span
                         className=' text-xl md:hidden inline'
+                        onClick={() => {heading !== link.name 
+                            ? setHeading(link.name)
+                            : setHeading('');
+                            setSubHeading('')
+                        }}
                     >
                         <FontAwesomeIcon icon={heading===link.name ? faChevronUp : faChevronDown}/>
                     </span>
@@ -42,11 +45,11 @@ const NavsLinks = () => {
                             <div className='py-2'>
                                 <div className='w-4 h-4 left-3 absolute m-1 bg-white rotate-45'></div>
                             </div>
-                            <div className='bg-white p-5 w-auto duration-500'>
+                            <div className='grid grid-cols-2 gap-1 bg-white p-5 duration-500'>
                                 {
                                     link.sublinks.map((mysublinks) => (
                                         <div>
-                                            <h1 className=' text-sm'>{mysublinks.Head}</h1>
+                                            <Link to={mysublinks.linkHead} className=' text-sm'>{mysublinks.Head}</Link>
                                             {mysublinks.sublinkBoolean && (
                                                 <>
                                                     {mysublinks.sublink.map(slink =>(
@@ -78,13 +81,16 @@ const NavsLinks = () => {
                 {link.sublinks.map((slinks) =>(
                     <div>
                         <div>
-                            <a 
+                            <h1 
                                 onClick={()=> subHeading !== slinks.Head 
                                     ? setSubHeading(slinks.Head) 
                                     : setSubHeading("")}
                                 className='py-4 pl-4 text-base md:pr-0 pr-5 flex justify-between items-center hover:text-blue-800'
                             >
-                                {slinks.Head}
+                                <Link 
+                                    onClick={() => stateNav()}
+                                    to={slinks.linkHead}
+                                >{slinks.Head}</Link>
                                 {slinks.sublinkBoolean && (
                                     <span
                                         className=' text-base md:mt-1 md:ml-2 inline duration-500'
@@ -93,21 +99,41 @@ const NavsLinks = () => {
                                     </span>
                                 )}
 
-                            </a>
+                            </h1>
                             <div
                                 className={`
-                                    ${subHeading === slinks.Head ? 'md:hidden' : 'hidden'} duration-500`}
+                                    ${subHeading === slinks.Head ? 'md:hidden' : 'hidden'} duration-500 overflow-scroll h-52`}
                             >
-                                {slinks.sublink.map(slink=>(
-                                    <li
-                                        className='py-3 pl-14'
-                                    >
-                                        <a
-                                            // to={slink.link}
-                                            className="hover:text-blue-800 text-sm" 
-                                        >{slink.name}</a>
-                                    </li>
-                                ))}
+                                {/* cette part on peut le optimizier plus*/}
+                                {slinks.subLinkMovie ? (
+                                    <>
+                                        {slinks.sublink.map(slink=>(
+                                            <li
+                                                className='py-1 pl-14'
+                                            >
+                                                <Link
+                                                    to={`/categories/movies${slink.link}`}
+                                                    onClick={() => stateNav()}
+                                                    className="hover:text-blue-800 text-sm" 
+                                                >{slink.name}</Link>
+                                            </li>
+                                        ))}
+                                    </>
+                                ) : (
+                                    <>
+                                        {slinks.sublink.map(slink=>(
+                                            <li
+                                                className='py-1 pl-14'
+                                            >
+                                                <Link
+                                                    to={`/categories/series${slink.link}`}
+                                                    onClick={() => stateNav()}
+                                                    className="hover:text-blue-800 text-sm" 
+                                                >{slink.name}</Link>
+                                            </li>
+                                        ))}
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
