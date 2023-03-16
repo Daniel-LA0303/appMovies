@@ -4,10 +4,12 @@ import { Autoplay, Pagination } from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import "swiper/css"
 
-import "./Slider.css"
+import "./SliderPath.css"
 
-import Card from './Card';
-const Slider = ({data, delay}) => {
+//componets
+import Card from '../../Cards/CardMoviePath/Card';
+
+const SliderPath = ({data, delay}) => {
 
   /*
   props
@@ -16,16 +18,17 @@ const Slider = ({data, delay}) => {
    */
 
     return (  
-        <div className=''>
+        // <div className=''>
 
             <div className=''>
-                <div className=' overflow-x-hidden swiperContainer my-5'>
+                <div className=' overflow-x-hidden swiperContainer my-5 mx-2 sm:mx-0'>
                     <Swiper
                         modules={[Pagination, Autoplay]}
                         
                         autoplay={{
                           delay: delay,
-                          disableOnInteraction: false
+                          disableOnInteraction: false,
+                          pauseOnMouseEnter: true
                         }}
                         
                         pagination={{
@@ -33,7 +36,7 @@ const Slider = ({data, delay}) => {
                           // type: 'bullets',
                           clickable: true,
                         }}
-                        slidesPerView={4}
+                        slidesPerView={3}
                         breakpoints={{
                           "@0.00": {
                             slidesPerView: 'auto',
@@ -67,17 +70,18 @@ const Slider = ({data, delay}) => {
                                 key={item.id}
                                 
                             >
-                                <Card 
-                                    item={item}
-                                />
+                              {/* <CardMovie /> */}
+                              <Card 
+                                  item={item}
+                              />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
                 <div className="pagination" />
             </div>
-        </div>
+        // </div>
     );
 }
  
-export default Slider;
+export default SliderPath;

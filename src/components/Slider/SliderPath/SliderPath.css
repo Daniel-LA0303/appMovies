@@ -4,29 +4,18 @@
     box-sizing: border-box;
   }
 
-.container{
-    /* height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 25px; */
-}
 .swiper-slide { 
-    width: auto;
-    height: 280px; 
+    width: 200px;
+    height: 330px; 
+    overflow: hidden;
 }
 @media (max-width: 600px) {
     .swiper-slide { 
-        width: auto;
-        height: 350px; 
+        height: 360px; 
     }
   }
-/* @media (max-width: 600px) {
-    .swiper-slide { width: 0% }
-  } */
 .swiperContainer {
-    /* overflow-x: hidden;
-    margin-top: 25px; */
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
 }
 .pagination {
     display: flex;

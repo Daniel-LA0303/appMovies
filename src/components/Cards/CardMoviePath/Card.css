@@ -1,0 +1,20 @@
+.img{
+    border-radius: 10px;
+    width: 180px;
+    /* height: ; */
+}
+@media (max-width: 600px) {
+    .img{
+        width: 220px;
+    }
+  }
+.data{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.data p{
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+}

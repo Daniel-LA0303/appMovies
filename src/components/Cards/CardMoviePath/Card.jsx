@@ -8,7 +8,7 @@ const Card = ({item}) => {
     
     const route = useNavigate();
 
-    const {poster_path} = item
+    const {poster_path, backdrop_path} = item
     const uriImage = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
     const navi = () => {
@@ -17,22 +17,16 @@ const Card = ({item}) => {
 
     return (  
         <div 
-            className='card cursor-pointer'
+            className=' cursor-pointer'
             onClick={() => navi()}
         >
-            <div className='c_img'>
+            <div className=''>
+            
                 <img className='img' src={uriImage} 
                     // style={{margin:'200px'}}
-                    />
+                />
+                <p className=' overflow-hidden py-4'>{item.title}</p>    
             </div>
-            
-            {/* <div className='data'>
-                <p>{nombre}</p>
-                <div className='description'>
-                    <p>{precio}</p>
-                    <p>{categoriaId}</p>
-                </div>
-            </div> */}
         </div>
     );
 }

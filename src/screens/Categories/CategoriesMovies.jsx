@@ -2,7 +2,9 @@ import React from 'react'
 
 const CategoriesMovies = () => {
   return (
-    <div>CategoriesMovies</div>
+    <div>
+      
+    </div>
   )
 }
 
