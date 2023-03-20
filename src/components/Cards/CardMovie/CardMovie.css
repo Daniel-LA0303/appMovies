@@ -30,12 +30,12 @@
     width: 100%;
 }
 .movie_card .info_section .movie_header h1{
-    color: #fff;
-    font-weight: 400;
+    /* color: #fff; */
+    /* font-weight: 400; */
 }
 .movie_card .info_section .movie_header h4{
-    color: #9ac7fa;
-    font-weight: 400;
+    /* color: #9ac7fa; */
+    /* font-weight: 400; */
 }
 .movie_card .info_section .movie_header .minutes{
     /* display: inline-block; */

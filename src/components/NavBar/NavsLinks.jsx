@@ -13,7 +13,7 @@ const NavsLinks = ({stateNav}) => {
     <>
   {
     links.map((link) => (
-        <div>
+        <div key={link.name}>
             <div className='px-3 text-left md:cursor-pointer group'>
                 <h1 
                     className='py-5 text-base md:text-sm flex justify-between items-center md:pr-0 pr-5 group'

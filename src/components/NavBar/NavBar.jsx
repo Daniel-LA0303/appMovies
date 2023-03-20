@@ -4,6 +4,7 @@ import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/icon.png";
 
+//components
 import NavsLinks from "./NavsLinks";
 import Search from "../Search/Search";
 import ProfileButton from "../ProfileButton/ProfileButton";
@@ -43,7 +44,7 @@ const NavBar = () => {
                 <div className=" md:block hidden">{/* <Button /> */}</div>
                     {/*Mobile navbar */}
                     <ul 
-                        // dans cete part il y a un error avec le "duration-100" en version movil navbar
+                        // dans cette part il y a un error avec le "duration-100" en version movil navbar
                         className={`md:hidden dark fixed z-40 w-full h-full bottom-0 py-10 pl-4 
                         duration-100
                          ${
@@ -56,7 +57,6 @@ const NavBar = () => {
                                 to="/" 
                                 className="pt-10 pb-5 px-3 inline-block text-lg sm:text-xl text-emerald-500"
                                 onClick={() => stateNav()}
-                                // onClick={() => setOpen(!open)}
                             >
                                 Home
                             </Link>

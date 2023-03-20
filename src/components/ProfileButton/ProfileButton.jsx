@@ -1,4 +1,4 @@
-import { faGear, faSun, faTableColumns, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -30,9 +30,7 @@ function ProfileButton() {
             >
                 <img
                     className=' w-10' 
-                    src={ 
-                    //   user?.profilePicture.secure_url != '' ? user.profilePicture.secure_url : 
-                      '/avatar.png'}    
+                    src='/avatar.png'
                 />
             </div>
 

@@ -64,14 +64,18 @@ a {
 
 .dropdown-menu{
   position: absolute;
-  top: 80px;
-  right: 20px;
+  top: 60px;
+  right: 40px;
   /* background-color: #fff; */
-  border-radius: var(--border-radius);
+  border-radius: 2px;
   padding: 10px 20px;
   width: 200px;
 }
-
+@media (max-width: 1021px) {
+  .dropdown-menu{
+    right: 10px;
+  }
+}
 .dropdown-menu::before{
   /* content: '';
   position: absolute;

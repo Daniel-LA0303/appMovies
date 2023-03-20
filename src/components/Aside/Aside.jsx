@@ -1,11 +1,13 @@
+import React from 'react'
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
-import useGlobal from '../../hooks/useGlobal'
+
+//Components
 import CardMovieSmall from '../Cards/CardMovieSmall/CardMovieSmall';
 import Categories from '../Categories/Categories'
 
 const Aside = ({data, movies, title}) => {
+
 
 
   return (
@@ -36,7 +38,7 @@ const Aside = ({data, movies, title}) => {
             ))}
         </ul>
         <button
-            className=' w-full border py-2 rounded-3xl bg-zinc-800 hover:bg-zinc-700 transition-all duration-100 border-zinc-600'
+            className=' w-full border py-2 rounded-3xl bg-violet-800 hover:bg-violet-600 transition-all duration-100 border-zinc-600'
         >See more</button>
     </>
   )
