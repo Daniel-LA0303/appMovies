@@ -16,7 +16,7 @@ const NavsLinks = ({stateNav}) => {
         <div>
             <div className='px-3 text-left md:cursor-pointer group'>
                 <h1 
-                    className='py-5 text-lg flex justify-between items-center md:pr-0 pr-5 group'
+                    className='py-5 text-base md:text-sm flex justify-between items-center md:pr-0 pr-5 group'
                 >
                     <Link 
                         to={link.linkName}
@@ -43,9 +43,9 @@ const NavsLinks = ({stateNav}) => {
                     <div>
                         <div className='fixed z-50 top-15 hidden group-hover:md:block hover:md:block group-hover:-mt-2'> {/*aqui se le cambio el z-50 para que se vea mejor*/ }
                             <div className='py-2'>
-                                <div className='w-4 h-4 left-3 absolute m-1 bg-white rotate-45'></div>
+                                <div className='w-4 h-4 left-3 absolute m-1 rotate-45'></div>
                             </div>
-                            <div className='grid grid-cols-2 gap-1 bg-white p-5 duration-500'>
+                            <div className='grid grid-cols-2 gap-1 bg-zinc-800  p-5 duration-500 rounded-lg border border-zinc-600'>
                                 {
                                     link.sublinks.map((mysublinks) => (
                                         <div>
@@ -56,10 +56,10 @@ const NavsLinks = ({stateNav}) => {
                                                     {mysublinks.subLinkMovie ? (
                                                         <>
                                                             {mysublinks.sublink.map(slink =>(
-                                                                <li className='text-xs text-gray-600 my-2.5'>
+                                                                <li className='text-xs my-2.5'>
                                                                     <Link
                                                                         to={`categories/movies${slink.link}`}
-                                                                        className=" hover:text-blue-800"    
+                                                                        className="hover:text-sky-600"    
                                                                     >{slink.name}</Link>
                                                                 </li>
                                                             ))}
@@ -67,10 +67,10 @@ const NavsLinks = ({stateNav}) => {
                                                     ) : (
                                                         <>
                                                             {mysublinks.sublink.map(slink =>(
-                                                                <li className='text-xs text-gray-600 my-2.5'>
+                                                                <li className='text-xs my-2.5'>
                                                                     <Link
                                                                         to={`categories/series${slink.link}`}
-                                                                        className=" hover:text-blue-800"    
+                                                                        className="hover:text-sky-600"    
                                                                     >{slink.name}</Link>
                                                                 </li>
                                                             ))}

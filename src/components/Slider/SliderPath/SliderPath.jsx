@@ -9,7 +9,7 @@ import "./SliderPath.css"
 //componets
 import Card from '../../Cards/CardMoviePath/Card';
 
-const SliderPath = ({data, delay}) => {
+const SliderPath = ({data, delay, series}) => {
 
   /*
   props
@@ -71,9 +71,16 @@ const SliderPath = ({data, delay}) => {
                                 
                             >
                               {/* <CardMovie /> */}
-                              <Card 
+                              {item.poster_path == null ? 
+                              <div className='hidden '>
+                                Archivo no encontrado
+                              </div> : (
+                                <Card 
                                   item={item}
-                              />
+                                  series={series}
+                                />
+                              )}
+
                             </SwiperSlide>
                         ))}
                     </Swiper>

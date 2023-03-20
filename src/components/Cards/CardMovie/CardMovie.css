@@ -24,9 +24,10 @@
     /* border-radius: 5px; */
 }
 .movie_card .info_section .movie_header{
-    position: relative;
+    /* position: relative; */
     padding: 25px;
     height: 30%;
+    width: 100%;
 }
 .movie_card .info_section .movie_header h1{
     color: #fff;
@@ -37,8 +38,8 @@
     font-weight: 400;
 }
 .movie_card .info_section .movie_header .minutes{
-    display: inline-block;
-    margin-top: 10px;
+    /* display: inline-block; */
+    /* margin-top: 10px; */
     color: #fff;
     padding: 5px;
     border-radius: 5px;
@@ -52,10 +53,11 @@
 }
 .movie_card .info_section .movie_header .locandina{
     position: relative;
-    float: left;
-    margin-right: 20px;
-    height: 120px;
-    box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
+    /* float: left; */
+    margin-right: 10px;
+    height: 140px;
+
+    /* box-shadow: 0 0 20px -10px rgba(0,0,0,0.5); */
     /* border-radius: 5px; */
 }
 .movie_card .info_section .movie_desc{

@@ -40,6 +40,7 @@ function App() {
               <Route path="series" element={<Series/>} />
               <Route path="series-popular" element={<SeriesPopulare />} />
               <Route path="new-series" element={<SeriesNew />} />
+              <Route path="series-details/:id" element={<SeriesNew />} />
 
               <Route path="categories" element={<Categories />} />
               <Route path="categories-movies" element={<CategoriesMovies />} />

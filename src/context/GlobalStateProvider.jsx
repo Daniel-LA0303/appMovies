@@ -7,16 +7,39 @@ const GlobalStateContext = createContext()
 
 const GlobalStateProvider = ({children}) => {
 
+  //states
+  const [credentials, setCredentials] = useState({
+    api_key: import.meta.env.VITE_API_KEY,
+    language: 'en-EN'
+  })
+  const [genresHome, setGenresHome] = useState([])
+  const [tendingMovie, setTendingMovie] = useState([])
+
   //Hooks
   const { nowPlaying, popular, upcoming, topRated, isLoadingMovie} = useMovies();
   const {nowPlayingTV, topRatedTV, popularTV, isLoadingTV} = useTVShows();
-  const {isLoadingCat, genresMovies, genresTV} = useCategories()
+  const {isLoadingCat, genresMovies, genresTV} = useCategories();
 
-  console.log(nowPlaying);
+
+  useEffect(() => {
+    const newElements = genresMovies.slice(0, 8);
+    setGenresHome(newElements);
+  }, [genresMovies])
+
+  useEffect(() => {
+    const tending = topRated.slice(0, 4)
+    setTendingMovie(tending)
+  }, [topRated])
+  
+  
+
+
+  // console.log(popularTV);
   
   return (
     <GlobalStateContext.Provider
       value={{
+        //-- Hooks
         // Movies
         nowPlaying,
         popular,
@@ -31,7 +54,11 @@ const GlobalStateProvider = ({children}) => {
         //cats
         genresMovies,
         genresTV,
-        isLoadingCat
+        isLoadingCat,
+        //-- States
+        credentials,
+        genresHome,
+        tendingMovie
       }}
     >
       {children}
