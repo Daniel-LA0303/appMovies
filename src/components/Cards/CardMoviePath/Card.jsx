@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom'
@@ -9,12 +9,13 @@ import "./Card.css"
 const Card = ({item, series}) => {
     
     const route = useNavigate();
+    const [details, setDetails] = useState(false)
 
     const {poster_path, vote_average} = item
     const uriImage = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
     const navi = () => {
-        route(series ? `/series-details/${item.id}` : `/movies-details/${item.id}`)
+        route(series ? `/${'details-series'}/${item.id}` : `/${'details-movie'}/${item.id}`)
     }
 
     return (  

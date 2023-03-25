@@ -1,4 +1,4 @@
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faRightToBracket, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -24,7 +24,7 @@ function ProfileButton() {
       });
   return (
     <div className="">
-         <div className='menu-container' ref={menuRef}>
+         <div className='' ref={menuRef}>
             <div className='menu-trigger  sm:mr-0' 
             onClick={()=>{setOpen(!open)}}
             >
@@ -35,16 +35,18 @@ function ProfileButton() {
             </div>
 
             <div className={`dropdown-menu z-20 bg-zinc-800 border border-zinc-600 ${open? 'active' : 'inactive'}`} >
-              <p className=' text-center text-xl sm:text-3xl'>User</p>
-              <p className='text-center'>Email</p>
-              <ul>
-                  <li className = 'dropdownItem p-2 hover:bg-gray-700 hover:text-white transition rounded'>
-                      <div className='px-2'>
-                        <FontAwesomeIcon icon={faUser} />
-                      </div>
-                      <Link to='/'>My Profile</Link>
-                  </li>
-              </ul>
+              <p className='text-base mb-3'>
+                <FontAwesomeIcon icon={faUser} className=' mr-2'/>
+                <span className=' text-sm'>Profile</span>
+              </p>
+              <p className='text-base w-full bg-violet-600 h-10 flex items-center justify-center rounded-lg mb-3 cursor-pointer hover:bg-violet-700 transition-all duration-100'>
+                <FontAwesomeIcon icon={faUserCircle} className=' mr-2'/>
+                <span className=' text-sm'>Sign in</span>
+              </p>
+              <p className='text-base w-full border-2 border-violet-600 h-10 flex items-center justify-center rounded-lg mb-3 cursor-pointer hover:border-violet-900 transition-all duration-100'>
+                <FontAwesomeIcon icon={faRightToBracket} className=' mr-2'/>
+                <span className=' text-sm'>Sign up</span>
+              </p>
             </div>
         </div>
     </div>

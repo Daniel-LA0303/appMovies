@@ -5,13 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //Components
 import CardMovieSmall from '../Cards/CardMovieSmall/CardMovieSmall';
 import Categories from '../Categories/Categories'
+import { Link } from 'react-router-dom';
 
 const Aside = ({data, movies, title}) => {
 
-
+    
 
   return (
-    <>
+    <div className='sticky top-5'>
         <div className=' flex flex-wrap'>
             {data.map(gen => (
                 <Categories 
@@ -37,10 +38,12 @@ const Aside = ({data, movies, title}) => {
                 />
             ))}
         </ul>
-        <button
-            className=' w-full border py-2 rounded-3xl bg-violet-800 hover:bg-violet-600 transition-all duration-100 border-zinc-600'
-        >See more</button>
-    </>
+
+        <Link
+            to='/categories-movies'
+            className='block text-center w-full border py-2 rounded-3xl bg-violet-800 hover:bg-violet-600 transition-all duration-100 border-zinc-600'
+        >See more</Link>
+    </div>
   )
 }
 

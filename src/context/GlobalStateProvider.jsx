@@ -16,7 +16,7 @@ const GlobalStateProvider = ({children}) => {
   const [genresHomeTV, setGenresHomeTV] = useState([])
   const [tendingMovie, setTendingMovie] = useState([]);
   const [tendingTV, setTendingTV] = useState([])
-  const [tabs, setTabs] = useState(false) //false = movies, true = tv
+  const [tabs, setTabs] = useState(true) //true = movies, false = tv
 
   //Hooks
   const { nowPlaying, popular, upcoming, topRated, isLoadingMovie} = useMovies();
@@ -35,12 +35,12 @@ const GlobalStateProvider = ({children}) => {
   }, [genresTV])
 
   useEffect(() => {
-    const tending = popular.slice(0, 4)
+    const tending = popular.slice(0, 3)
     setTendingMovie(tending)
   }, [popular])
 
   useEffect(() => {
-    const tending = popularTV.slice(0, 4)
+    const tending = popularTV.slice(0, 3)
     setTendingTV(tending)
 
   }, [popularTV])

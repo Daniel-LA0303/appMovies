@@ -11,11 +11,9 @@ import useGlobal from "../../../hooks/useGlobal";
 const CardMovie = ({ item }) => {
 
     const [genres, setGenres] = useState([])
-    // const [runtime, setRuntime] = useState('')
 
     const route = useNavigate()
     const {credentials} = useGlobal()
-    const {poster_path, backdrop_path, title, release_date, overview,vote_average, genre_ids, id} = item
     const uriImage = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
 
     useEffect(() => {
@@ -34,19 +32,18 @@ const CardMovie = ({ item }) => {
 
     }, [])
 
-    const directionMovie = (id)=> {
-      route(`/movies-details/${id}`)
+    const directionPage = (id)=> {
+      route(`/${item.title ? 'details-movie' : 'details-serie'}/${id}`)
     }
 
-    const directionGenre = (name) => {
-      route(`/categories/movies/${name}`)
+    const directionCat = (id)=> {
+      route(`/${item.title ? 'categorie/movie' : 'categorie/serie'}/${id}`)
     }
 
   return (
     <>
       <div 
         className="movie_card my-5 mx-auto rounded "
-        // onClick={() => directionMovie(id)}
         id="tomb"
         style={{ 
             backgroundImage: `url(https://image.tmdb.org/t/p/w500${item.backdrop_path})`,
@@ -54,44 +51,41 @@ const CardMovie = ({ item }) => {
             backgroundPosition: 'right',
             backgroundAttachment: 'fixed',
             backgroundSize: 800
-            // height: au
         }}
       >
-        <div className="info_section">
+        <div className="info_section p-3 sm:p-5">
           <div className="movie_header flex">
             <div>
               <img
-                className="locandina cursor-pointer "
+                className="locandina cursor-pointer w-32 rounded"
                 src={uriImage} 
-                onClick={() => directionMovie(item.id)}
+                onClick={() => directionPage(item.id)}
               />
             </div>
             <div className="ml-2">
               <h1
-                onClick={() => directionMovie(id)}
+                onClick={() => directionPage(item.id)}
                 className='cursor-pointer text-violet-600 text-lg sm:text-2xl font-bold'
               >{item.title ? item.title : item.name}</h1>
               <h4 className="mb-1">Relase Date: {item.release_date ? item.release_date : item.first_air_date}</h4>
-              {item.runtime && (
-                <span className="minutes mb-1">{item.runtime} min</span>
-              )}
               
-              <div className="flex flex-row flex-wrap text-xs">
+              <ul className="flex flex-row flex-wrap text-xs">
                 {genres.map(genre => (
                   
-                    <p 
-                      className="minutes mr-1 my-2"
+                    <li 
+                      className="minutes mr-1 my-2 border px-2 py-1 rounded cursor-pointer"
                       key={genre.name}
-                    >{genre.name}</p>
+                      onClick={() => directionCat(genre.id)}
+                    >{genre.name}</li>
                 ))}
-              </div>
+              </ul>
               <p className=" text-yellow-400">
                 <FontAwesomeIcon icon={faStar} />
                 <span className="text-white ml-2">{item.vote_average}</span>
               </p>
             </div>
           </div>
-          <div className="movie_desc mt-3">
+          <div className="movie_desc mt-3 w-5/6 sm:w-3/6">
             <p className="text text-xs">
                 {item.overview}
             </p>

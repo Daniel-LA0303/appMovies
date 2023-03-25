@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +6,11 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 const FilterByCat = () => {
     const [filter] = useAutoAnimate();
 
-    const [openFilter, setOpenFilter] = useState(true);
+    const [openFilter, setOpenFilter] = useState(false);
+    useEffect(() => { 
+      setOpenFilter(false)
+    }, [])
+    
   return (
     <div
       ref={filter}

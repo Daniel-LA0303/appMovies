@@ -25,13 +25,12 @@ const Tabs = () => {
         setTabs
     } = useGlobal();
 
-    // console.log(nowPlayingTV);
 
   return (
     <>
         <div className="warpper">
-            <input className="radio" id="one" name="group" type="radio" defaultChecked />
-            <input className="radio" id="two" name="group" type="radio" 
+            <input className="radio" id="one" name="group" type="radio"  onChange={() => setTabs(!tabs)} defaultChecked={tabs}/>
+            <input className="radio" id="two" name="group" type="radio" onChange={() => setTabs(!tabs)} defaultChecked={!tabs}
              
             />
             {/* <input className="radio" id="three" name="group" type="radio" /> */}

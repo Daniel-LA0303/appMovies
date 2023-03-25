@@ -1,4 +1,4 @@
-import React, { } from 'react'
+import React, { useEffect } from 'react'
 import Aside from '../../components/Aside/Aside';
 import FilterByCat from '../../components/Filter/FilterByCat';
 import SliderBackdrop from '../../components/Slider/SliderBackdrop/SliderBackdrop';
@@ -19,11 +19,10 @@ const Home = () => {
         genresHomeTV,
         tendingMovie,
         tendingTV, 
-        tabs
-
+        tabs,
+        setTabs
     } = useGlobal();
     
-
   return (
     <>
         {(isLoadingCat || isLoadingMovie) ? (
@@ -32,18 +31,14 @@ const Home = () => {
             <div className='flex justify-center w-full '>
                 
                 <div className='w-full md:w-8/12 mx-5'>
-                    <div className='mx-2 sm:mx-0 mt-3'>
-                        <FilterByCat />
-                    </div>
                     <div className=' mx-2 sm:mx-0 mt-3'>
                         <Tabs />
                     </div> 
                 </div>
-                {/* Se convertira a componente */}
                 <aside className='hidden md:block w-4/12 my-5 mx-5 text-white '>
                     <Aside 
-                        data={tabs ? genresHomeTV : genresHomeMovies}
-                        movies={tabs ? tendingTV : tendingMovie}
+                        data={tabs ? genresHomeMovies : genresHomeTV }
+                        movies={ tendingMovie}
                         title='Tending'
                     />
                 </aside>
