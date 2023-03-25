@@ -80,8 +80,11 @@ button {
 }
 
 .nav-button {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display: grid; */
+  /* place-items: center; */
   width: 44px;
   /* height: 44px; */
   background: transparent;
