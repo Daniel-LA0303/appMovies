@@ -63,11 +63,11 @@ const CardMovie = ({ item }) => {
             <div className="ml-2">
               <h1
                 onClick={() => directionPage(item.id)}
-                className='cursor-pointer text-violet-600 text-lg sm:text-2xl font-bold'
+                className='cursor-pointer text-violet-600  my-5 sm:my-0 text-lg sm:text-2xl font-bold'
               >{item.title ? item.title : item.name}</h1>
               <h4 className="mb-1">Relase Date: {item.release_date ? item.release_date : item.first_air_date}</h4>
               
-              <ul className="flex flex-row flex-wrap text-xs">
+              <ul className="hidden sm:flex flex-row flex-wrap text-xs">
                 {genres.map(genre => (
                   
                     <li 

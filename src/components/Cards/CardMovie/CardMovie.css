@@ -27,7 +27,7 @@
 
 @media (max-width: 640px) {
   .movie_card{
-    height: 250px;
+    height: 200px;
   }
   .movie_card .info_section{
     background: linear-gradient(to right, #0d0d0c 10%, transparent 100%);

@@ -30,7 +30,7 @@ const SliderBackdrop = ({data}) => {
 
     const settings = {
 
-        dots: true,
+        // dots: true,
         infinite: true,
         fade: true,
         speed: 1000,
