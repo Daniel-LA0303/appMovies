@@ -121,7 +121,7 @@ const NavsLinks = ({stateNav}) => {
                             {slinks.sublinkBoolean && (
                                 <div
                                     className={`
-                                        ${subHeading === slinks.Head ? 'md:hidden' : 'hidden'} duration-500 overflow-scroll h-52`}
+                                        ${subHeading === slinks.Head ? 'md:hidden' : 'hidden'} duration-500 overflow-scroll h-44`}
                                 >
                                     {/* cette part on peut le optimizier plus*/}
                                     {slinks.subLinkMovie ? (
