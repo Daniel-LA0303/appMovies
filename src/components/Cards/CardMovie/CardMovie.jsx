@@ -43,19 +43,17 @@ const CardMovie = ({ item }) => {
   return (
     <>
       <div 
-        className="movie_card my-5 mx-auto rounded "
-        id="tomb"
+        className="movie_card my-5 mx-auto rounded bg-cover"
         style={{ 
             backgroundImage: `url(https://image.tmdb.org/t/p/w500${item.backdrop_path})`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'right',
             backgroundAttachment: 'fixed',
-            backgroundSize: 800
         }}
       >
         <div className="info_section p-3 sm:p-5">
           <div className="movie_header flex">
-            <div>
+            <div className="hidden sm:block">
               <img
                 className="locandina cursor-pointer w-32 rounded"
                 src={uriImage} 
@@ -85,7 +83,7 @@ const CardMovie = ({ item }) => {
               </p>
             </div>
           </div>
-          <div className="movie_desc mt-3 w-5/6 sm:w-3/6">
+          <div className="movie_desc hidden sm:block mt-3 w-5/6 sm:w-3/6">
             <p className="text text-xs">
                 {item.overview}
             </p>

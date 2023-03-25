@@ -5,7 +5,7 @@
     /* position: relative; */
     display: block;
     /* width: 1010px; */
-    height: 450px;
+    height: 400px;
     /* margin: 10px auto;  */
     overflow: hidden;
     /* border-radius: 1px; */
@@ -16,11 +16,20 @@
     transition: all 0.4s;
 } */
 .movie_card .info_section{
-  background: linear-gradient(to right, #0d0d0c 35%, transparent 100%);
+  background: linear-gradient(to right, #0d0d0c 25%, transparent 100%);
     /* position: relative; */
     width: 100%;
     height: 100%;
     /* background-blend-mode: multiply; */
     z-index: 2;
     /* border-radius: 5px; */
+}
+
+@media (max-width: 640px) {
+  .movie_card{
+    height: 250px;
+  }
+  .movie_card .info_section{
+    background: linear-gradient(to right, #0d0d0c 10%, transparent 100%);
+  }
 }
