@@ -11,6 +11,8 @@ const SeriesPopulare = () => {
   const {
     isLoadingMovie,
     isLoadingCat,
+    setCatsFilter,
+    catsFilter
   } = useGlobal();
 
   const [movies, setMovies] = useState([]);
@@ -29,15 +31,30 @@ const SeriesPopulare = () => {
   };
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/tv/popular?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=1`
-      );
-      setMovies(response.data.results);
-      setTotalPages(response.data.total_pages);
-    };
     fetchMovies();
   }, []);
+
+  useEffect(() => {
+    if(catsFilter.length === 0){
+      fetchMovies();
+    }
+    const filteredMovies = movies.filter(movie =>
+      movie.genre_ids.some(genreId => catsFilter.includes(genreId))
+    );
+    setMovies(filteredMovies);
+  }, [catsFilter])
+
+  useEffect(() => {
+    setCatsFilter([])
+  }, [])
+
+  const fetchMovies = async () => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/tv/popular?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=1`
+    );
+    setMovies(response.data.results);
+    setTotalPages(response.data.total_pages);
+  };
 
   return (
 <>
@@ -51,10 +68,13 @@ const SeriesPopulare = () => {
             <div className='w-full sm:w-8/12 order-last'>
                 <div className='my-3'>  
                   <div className='my-3 mx-2'>  
-                    <TransitionGroup className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4">
+                    <TransitionGroup className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 sm:gap-4">
                       {movies.map(item => (
                         <CSSTransition key={item.id} timeout={500} classNames="fade">
-                          <CardMT item={item} />
+                          <CardMT 
+                            item={item} 
+                            series={true}
+                          />
                         </CSSTransition>
                       ))}
                     </TransitionGroup>

@@ -1,10 +1,12 @@
 import React from 'react'
 import FilterByCat from '../Filter/FilterByCat'
+import FilterByType from '../Filter/FilterByType'
 
-const AsideFilter = () => {
+const AsideFilter = ({movies, sort}) => {
   return (
     <div className='sticky top-5'>
-        <FilterByCat />
+        {sort && <FilterByType movies={movies}/>}
+        <FilterByCat movies={movies}/>        
     </div>
   )
 }

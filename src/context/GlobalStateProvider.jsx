@@ -18,6 +18,12 @@ const GlobalStateProvider = ({children}) => {
   const [tendingTV, setTendingTV] = useState([])
   const [tabs, setTabs] = useState(true) //true = movies, false = tv
 
+  const [filterState, setFilterState] = useState({
+    value: "popular",
+    label: "Most Popular"
+  })
+  const [catsFilter, setCatsFilter] = useState([])
+
   //Hooks
   const { nowPlaying, popular, upcoming, topRated, isLoadingMovie} = useMovies();
   const {nowPlayingTV, topRatedTV, popularTV, isLoadingTV} = useTVShows();
@@ -76,7 +82,11 @@ const GlobalStateProvider = ({children}) => {
         tendingMovie,
         tendingTV,
         setTabs,
-        tabs
+        tabs,
+        filterState,
+        setFilterState,
+        catsFilter,
+        setCatsFilter
       }}
     >
       {children}
