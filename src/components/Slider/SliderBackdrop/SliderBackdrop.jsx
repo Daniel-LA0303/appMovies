@@ -70,7 +70,7 @@ const SliderBackdrop = ({data}) => {
         ]
       }
   return (
-    <div className='mx-2 sm:mx-0'>
+    <div className='mx-0'>
         <Slider {...settings}>
         {data.map(item => (
           <div 

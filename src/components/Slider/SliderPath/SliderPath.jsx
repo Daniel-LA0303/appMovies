@@ -21,7 +21,7 @@ const SliderPath = ({data, delay, series}) => {
         // <div className=''>
 
             <div className=''>
-                <div className=' overflow-x-hidden swiperContainer my-5 mx-2 sm:mx-0'>
+                <div className=' overflow-x-hidden swiperContainer my-5 mx-0'>
                     <Swiper
                         modules={[Pagination, Autoplay]}
                         

@@ -58,7 +58,7 @@ const NavsLinks = ({stateNav}) => {
                                                             {mysublinks.sublink.map(slink =>(
                                                                 <li className='text-xs my-2.5'>
                                                                     <Link
-                                                                        to={`categories/movies${slink.link}`}
+                                                                        to={`categorie/movie${slink.link}`}
                                                                         className="hover:text-sky-600"    
                                                                     >{slink.name}</Link>
                                                                 </li>
@@ -69,7 +69,7 @@ const NavsLinks = ({stateNav}) => {
                                                             {mysublinks.sublink.map(slink =>(
                                                                 <li className='text-xs my-2.5'>
                                                                     <Link
-                                                                        to={`categories/series${slink.link}`}
+                                                                        to={`categorie/serie${slink.link}`}
                                                                         className="hover:text-sky-600"    
                                                                     >{slink.name}</Link>
                                                                 </li>
@@ -98,6 +98,7 @@ const NavsLinks = ({stateNav}) => {
                     <div>
                         <div>
                             <h1 
+                                
                                 onClick={()=> subHeading !== slinks.Head 
                                     ? setSubHeading(slinks.Head) 
                                     : setSubHeading("")}
@@ -131,7 +132,7 @@ const NavsLinks = ({stateNav}) => {
                                                     className='py-1 pl-14'
                                                 >
                                                     <Link
-                                                        to={`/categories/movies${slink.link}`}
+                                                        to={`/categorie/movie${slink.link}`}
                                                         onClick={() => stateNav()}
                                                         className="hover:text-blue-800 text-sm" 
                                                     >{slink.name}</Link>
@@ -145,7 +146,7 @@ const NavsLinks = ({stateNav}) => {
                                                     className='py-1 pl-14'
                                                 >
                                                     <Link
-                                                        to={`/categories/series${slink.link}`}
+                                                        to={`/categorie/serie${slink.link}`}
                                                         onClick={() => stateNav()}
                                                         className="hover:text-blue-800 text-sm" 
                                                     >{slink.name}</Link>

@@ -14,7 +14,7 @@ const FilterByCat = () => {
   return (
     <div
       ref={filter}
-      className=" bg-zinc-800 rounded-md shadow-md px-4 py-2 mt-8"
+      className=" bg-zinc-800 rounded-md shadow-md px-4 py-2 mx-2 sm:mx-5"
     >
       <div className="flex justify-between items-center text-white py-1">
         <p className="text-lg">Filter</p>

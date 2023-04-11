@@ -51,7 +51,7 @@ const CardMovie = ({ item }) => {
             backgroundAttachment: 'fixed',
         }}
       >
-        <div className="info_section p-3 sm:p-5">
+        <div className="info_section p-2 sm:p-5">
           <div className="movie_header flex">
             <div className="hidden sm:block">
               <img
