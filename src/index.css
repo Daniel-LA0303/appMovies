@@ -236,7 +236,7 @@ h3 span{
   place-items: center;
   margin: 0;
   padding: 0 24px;
-  background-image: url("login.svg");
+  /* background-image: url("../assets/login.svg"); */
   background-repeat: no-repeat;
   background-size: cover;
   color: #000;

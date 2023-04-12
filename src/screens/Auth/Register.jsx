@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import loginImg from '../../assets/login.svg';
 
 const Register = () => {
   return (
-    <div className='body-login'>
+    <div className='body-login' style={{ backgroundImage: `url(${loginImg})` }}>
         <div className="login-card text-white">
             <h2 className=' text-white font-light mb-10'>Register</h2>
             {/* <h3 className='text-white font-light'>Enter your credentials</h3> */}
