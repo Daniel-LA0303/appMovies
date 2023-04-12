@@ -55,7 +55,7 @@ const GlobalStateProvider = ({children}) => {
   
 
 
-  console.log(topRatedTV);
+  // console.log(topRatedTV);
   
   return (
     <GlobalStateContext.Provider
