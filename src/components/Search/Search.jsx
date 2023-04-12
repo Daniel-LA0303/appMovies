@@ -42,7 +42,7 @@ const Search = () => {
                 ref={inputRef}
                 onChange={handleChange}
                 placeholder="Find a movie"
-                type="search"
+                type="text"
                 className=' bg-zinc-700'
               />
             </form>
