@@ -8,62 +8,59 @@ import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
   const route = useNavigate();
-  const [visible, setVisible] = useState(false)
-
   const [isOpen, setIsOpen] = useState("");
   const [search, setSearch] = useState("");
 
   const inputRef = useRef(null);
 
+
   const handleClick = () => {
     if (!isOpen) {
       inputRef.current?.focus();
     }
+    if(isOpen && search){
+      console.log('tiene algo');
+      navigateIn()
+      setTimeout(() => {
+        setIsOpen(!(isOpen) ? "open" : "");
+      }, 1000);
+      setSearch('')
+    }
+
     setIsOpen(!(isOpen) ? "open" : "");
-    console.log('click');
   };
 
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
-  const handleSubmit = () => {
-    setSearch('')
+  const navigateIn = () => {
     route(`all/${search}`)
   }
-  // route(`/search/${search}`)
+
   return (
     <>
       <button className="nav-button uil uil-estate"></button>
-        <div className="wrapper">
-            <input
-                // ref={inputRef}
-                onChange={handleChange}
-                placeholder="Find a movie"
-                type="text"
-                className=' bg-zinc-700'
-              />
-              <button onClick={() => handleSubmit()}>value</button>
+        <div className="wrapper">              
           <div className={`bg-zinc-700 search ${isOpen}`}>
-            {/* <form onSubmit={handleSubmit}>
               <input
                 ref={inputRef}
                 onChange={handleChange}
                 placeholder="Find a movie"
                 type="text"
                 className=' bg-zinc-700'
+                value={search}
               />
-            </form>
             
             <button
-              onClick={handleClick}
+              onClick={() => handleClick()}
               className={`nav-button uil uil-${isOpen ? "multiply" : "search"}`}
-            > */}
-              {/* <FontAwesomeIcon 
-                icon={isOpen ? faX : faSearch} 
+            >
+              <FontAwesomeIcon 
+                icon={faSearch} 
                 className=' text-sm'
               />
-            </button> */}
+            </button>
           </div>
         </div>
     </>
