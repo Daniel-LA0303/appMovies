@@ -39,14 +39,14 @@ function ProfileButton() {
                 <FontAwesomeIcon icon={faUser} className=' mr-2'/>
                 <span className=' text-sm'>Profile</span>
               </p>
-              <p className='text-base w-full bg-violet-600 h-10 flex items-center justify-center rounded-lg mb-3 cursor-pointer hover:bg-violet-700 transition-all duration-100'>
+              <Link to={'/login'} className='text-base w-full bg-violet-600 h-10 flex items-center justify-center rounded-lg mb-3 cursor-pointer hover:bg-violet-700 transition-all duration-100'>
                 <FontAwesomeIcon icon={faUserCircle} className=' mr-2'/>
                 <span className=' text-sm'>Sign in</span>
-              </p>
-              <p className='text-base w-full border-2 border-violet-600 h-10 flex items-center justify-center rounded-lg mb-3 cursor-pointer hover:border-violet-900 transition-all duration-100'>
+              </Link>
+              <Link to={'/register'} className='text-base w-full border-2 border-violet-600 h-10 flex items-center justify-center rounded-lg mb-3 cursor-pointer hover:border-violet-900 transition-all duration-100'>
                 <FontAwesomeIcon icon={faRightToBracket} className=' mr-2'/>
                 <span className=' text-sm'>Sign up</span>
-              </p>
+              </Link>
             </div>
         </div>
     </div>

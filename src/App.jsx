@@ -21,6 +21,9 @@ import { GlobalStateProvider } from './context/GlobalStateProvider';
 import Details from './screens/Details/Details';
 import CategoriesByParams from './screens/Categories/CategoriesByParams';
 import SearchApp from './screens/Search/SearchApp';
+import Login from './screens/Auth/Login';
+import Register from './screens/Auth/Register';
+import NoNavLayout from './components/Layout/NoNavLayout';
 
 
 function App() {
@@ -48,9 +51,13 @@ function App() {
               <Route path="categories-series" element={<CategoriesSeries />} />
 
               <Route path="all/:param" element={<SearchApp />} />
-
+{/* 
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} /> */}
 
             </Route>
+            <Route path="login" element={<NoNavLayout><Login /></NoNavLayout>} />
+            <Route path="register" element={<NoNavLayout><Register /></NoNavLayout>} />
         </Routes>
       </GlobalStateProvider>
     </BrowserRouter>
