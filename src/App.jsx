@@ -47,7 +47,7 @@ function App() {
               <Route path="categories-movies" element={<CategoriesMovies />} />
               <Route path="categories-series" element={<CategoriesSeries />} />
 
-              <Route path="search/:param" element={<SearchApp />} />
+              <Route path="all/:param" element={<SearchApp />} />
 
 
             </Route>

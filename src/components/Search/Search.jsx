@@ -29,7 +29,7 @@ const Search = () => {
 
   const handleSubmit = () => {
     setSearch('')
-    route(`search/${search}`)
+    route(`all/${search}`)
   }
   // route(`/search/${search}`)
   return (
