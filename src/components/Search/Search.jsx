@@ -4,7 +4,6 @@ import React, { useRef, useState } from 'react'
 import { cars } from '../../helpers/data'
 import './Search.css'
 import { useNavigate } from 'react-router-dom'
-import { navigate } from 'react-router-dom';
 // import {navi}
 
 const Search = () => {
@@ -30,7 +29,7 @@ const Search = () => {
 
   const handleSubmit = () => {
     setSearch('')
-    navigate(`search/${search}`)
+    route(`search/${search}`)
   }
   // route(`/search/${search}`)
   return (

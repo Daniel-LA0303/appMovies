@@ -53,24 +53,25 @@ const Search = () => {
       fetchSearchResults();
     }, [param, page]);
   
-    useEffect(() => {
-        const intersectionObserver = new IntersectionObserver((entries) => {
-          if (entries.some((entry) => entry.isIntersecting)) {
-            setPage((prevPage) => prevPage + 1);
-          }
-        }, { threshold: 0.1 });
+    // useEffect(() => {
+    //     const intersectionObserver = new IntersectionObserver((entries) => {
+    //       if (entries.some((entry) => entry.isIntersecting)) {
+    //         setPage((prevPage) => prevPage + 1);
+    //       }
+    //     }, { threshold: 0.1 });
       
-        // Verificar que no se hayan cargado ya todos los resultados
-        if (searchResults2.length === 0 && searchResults.length > 0) {
-          intersectionObserver.observe(document.querySelector('#intersectionObserver'));
-        }
+    //     // Verificar que no se hayan cargado ya todos los resultados
+    //     if (searchResults2.length === 0 && searchResults.length > 0) {
+    //       intersectionObserver.observe(document.querySelector('#intersectionObserver'));
+    //     }
       
-        return () => intersectionObserver.disconnect();
-      }, [searchResults, searchResults2]);
+    //     return () => intersectionObserver.disconnect();
+    //   }, [searchResults, searchResults2]);
 
   return (
     <div>
-        <div className='block sm:flex order-movies'>
+        {param}
+        {/* <div className='block sm:flex order-movies'>
             <aside className='w-full  sm:w-4/12 my-3 text-white px-3  sm:px-0 sm:mx-5'>
                 <Aside 
                     data={param === 'movie' ? genresHomeMovies : genresHomeTV }
@@ -104,7 +105,7 @@ const Search = () => {
         </div>
 
 
-      <div id="intersectionObserver" />
+      <div id="intersectionObserver" /> */}
     </div>
   )
 }
