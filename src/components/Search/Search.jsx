@@ -36,8 +36,16 @@ const Search = () => {
     <>
       <button className="nav-button uil uil-estate"></button>
         <div className="wrapper">
+            <input
+                // ref={inputRef}
+                onChange={handleChange}
+                placeholder="Find a movie"
+                type="text"
+                className=' bg-zinc-700'
+              />
+              <button onClick={() => handleSubmit()}>value</button>
           <div className={`bg-zinc-700 search ${isOpen}`}>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
               <input
                 ref={inputRef}
                 onChange={handleChange}
@@ -50,12 +58,12 @@ const Search = () => {
             <button
               onClick={handleClick}
               className={`nav-button uil uil-${isOpen ? "multiply" : "search"}`}
-            >
-              <FontAwesomeIcon 
+            > */}
+              {/* <FontAwesomeIcon 
                 icon={isOpen ? faX : faSearch} 
                 className=' text-sm'
               />
-            </button>
+            </button> */}
           </div>
         </div>
     </>
