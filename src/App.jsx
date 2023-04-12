@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './App.css'
 
 //dependencies
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, HashRouter } from 'react-router-dom';
 
 // Screen
 import Layout from './components/Layout/Layout';
@@ -26,7 +26,7 @@ import SearchApp from './screens/Search/SearchApp';
 function App() {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <GlobalStateProvider>
         <Routes>
             <Route path="/" element={<Layout />}>
@@ -53,7 +53,7 @@ function App() {
             </Route>
         </Routes>
       </GlobalStateProvider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
