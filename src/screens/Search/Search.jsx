@@ -45,7 +45,7 @@ const Search = () => {
               return [...prevResults, ...searchResults];
             }
           });
-          console.log(searchResults);
+        //   console.log(searchResults);
         } catch (error) {
           console.log(error);
         }
