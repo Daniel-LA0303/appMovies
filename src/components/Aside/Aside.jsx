@@ -40,7 +40,7 @@ const Aside = ({data, movies, title}) => {
         </ul>
 
         <Link
-            to='/categories-movies'
+            to='/movies'
             className='block text-center w-full border py-2 rounded-3xl bg-violet-800 hover:bg-violet-600 transition-all duration-100 border-zinc-600'
         >See more</Link>
     </div>

@@ -62,10 +62,14 @@ const MoviesPopular = () => {
         ) : (
         <div className='block sm:flex order-movies'>
             <aside className='w-full sm:w-4/12 my-3 text-white '>
-                <AsideFilter />
+                <AsideFilter 
+                  sort={false}
+                  cats={true}
+                />
             </aside>   
             <div className='w-full sm:w-8/12 order-last'>
                 <div className='my-3'>  
+                <p className='mx-2 text-2xl sm:text-3xl text-white'>Movies</p>
                   <div className='my-3 mx-2'>  
                     <TransitionGroup className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 sm:gap-4">
                       {movies.map(item => (

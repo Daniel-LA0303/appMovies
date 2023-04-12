@@ -20,8 +20,19 @@ const Home = () => {
         tendingMovie,
         tendingTV, 
         tabs,
-        setTabs
+        setTabs,
+        setCatsFilter,
+        setSelectedGenres
     } = useGlobal();
+
+    useEffect(() => {
+        setCatsFilter([])
+        setSelectedGenres([])
+        // setFilterState({
+        //   value: "popular",
+        //   label: "Most Popular"
+        // })
+      }, [])
     
   return (
     <>

@@ -7,11 +7,21 @@ const Categories = ({cat}) => {
   const route = useNavigate()
 
   const { 
-    tabs
+    catsFilter,
+    setCatsFilter,
+    tabs,
+    selectedGenres,
+    setSelectedGenres
 } = useGlobal();
 
 const directionCat = (id)=> {
-  route(`/${tabs ? 'categorie/movie' : 'categorie/serie'}/${id}`)
+  setCatsFilter([...catsFilter, id])
+  setSelectedGenres([...selectedGenres, id])
+  // setTimeout(() => {
+    route(`/${tabs ? 'movies' : 'series' }`)
+  // }, 3000);
+  
+  
 }
 
 

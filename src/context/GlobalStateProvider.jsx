@@ -23,6 +23,7 @@ const GlobalStateProvider = ({children}) => {
     label: "Most Popular"
   })
   const [catsFilter, setCatsFilter] = useState([])
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
   //Hooks
   const { nowPlaying, popular, upcoming, topRated, isLoadingMovie} = useMovies();
@@ -54,7 +55,7 @@ const GlobalStateProvider = ({children}) => {
   
 
 
-  // console.log(tendingTV);
+  console.log(genresTV, genresMovies);
   
   return (
     <GlobalStateContext.Provider
@@ -86,7 +87,9 @@ const GlobalStateProvider = ({children}) => {
         filterState,
         setFilterState,
         catsFilter,
-        setCatsFilter
+        setCatsFilter,
+        selectedGenres,
+        setSelectedGenres
       }}
     >
       {children}

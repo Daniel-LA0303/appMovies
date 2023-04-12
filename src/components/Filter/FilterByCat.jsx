@@ -10,12 +10,14 @@ const FilterByCat = ({movies}) => {
       genresMovies,
       genresTV,
       setCatsFilter,
-      catsFilter
+      catsFilter,      
+      selectedGenres,
+      setSelectedGenres
     } = useGlobal();
 
 
     const [filter] = useAutoAnimate();
-    const [selectedGenres, setSelectedGenres] = useState([]);
+    
     const [openFilter, setOpenFilter] = useState(false);
     useEffect(() => { 
       setOpenFilter(false)

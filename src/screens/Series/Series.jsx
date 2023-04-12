@@ -34,17 +34,14 @@ const Series = () => {
   };
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/tv/${filterState.value}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=1`
-      );
-      setMovies(response.data.results);
-      setTotalPages(response.data.total_pages);
-    };
+
     fetchMovies();
   }, [filterState]);
 
   useEffect(() => {
+    if(catsFilter.length === 0){
+      fetchMovies();
+    }
     const filteredMovies = movies.filter(movie =>
       movie.genre_ids.some(genreId => catsFilter.includes(genreId))
     );
@@ -53,13 +50,21 @@ const Series = () => {
   
 
   useEffect(() => {
-    setCatsFilter([])
+    // setCatsFilter([])
     setFilterState({
       value: "popular",
       label: "Most Popular"
     })
   }, [])
 
+
+  const fetchMovies = async () => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/tv/${filterState.value}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=1`
+    );
+    setMovies(response.data.results);
+    setTotalPages(response.data.total_pages);
+  };
 
   
 
@@ -73,6 +78,7 @@ const Series = () => {
               <AsideFilter 
                 movies={false}
                 sort={true}
+                cats={true} 
               />
           </aside>   
           <div className='w-full sm:w-8/12 order-last'>
@@ -83,7 +89,10 @@ const Series = () => {
                         { 
                           movies.map(item => (
                             <CSSTransition key={item.id} timeout={500} classNames="fade">
-                              <CardMT item={item} />
+                              <CardMT 
+                                item={item}
+                                series={true}
+                              />
                             </CSSTransition>
                           )) 
                         }
