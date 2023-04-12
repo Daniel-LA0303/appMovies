@@ -6,7 +6,7 @@ import CardSearch from '../../components/Cards/CardSearch/CardSearch';
 import Aside from '../../components/Aside/Aside';
 import useGlobal from '../../hooks/useGlobal';
 
-const Search = () => {
+const SearchApp = () => {
 
     const {
         isLoadingMovie,
@@ -26,32 +26,32 @@ const Search = () => {
     const [page, setPage] = useState(1);
     const { param } = useParams();
     
-    useEffect(() => {
-      const fetchSearchResults = async () => {
-        try {
-          const responseMovies = await axios.get(
-            `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&query=${param}&page=${page}&include_adult=false`
-          );
-          const responseTV = await axios.get(
-            `https://api.themoviedb.org/3/search/tv?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&query=${param}&page=${page}&include_adult=false`
-          );
-          const movies = responseMovies.data.results.filter((movie) => movie.poster_path !== null);
-          const tvShows = responseTV.data.results.filter((show) => show.poster_path !== null);
-          const searchResults = [...movies, ...tvShows];
-          setSearchResults(prevResults => {
-            if (page === 1) {
-              return searchResults;
-            } else {
-              return [...prevResults, ...searchResults];
-            }
-          });
-        //   console.log(searchResults);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      fetchSearchResults();
-    }, [param, page]);
+    // useEffect(() => {
+    //   const fetchSearchResults = async () => {
+    //     try {
+    //       const responseMovies = await axios.get(
+    //         `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&query=${param}&page=${page}&include_adult=false`
+    //       );
+    //       const responseTV = await axios.get(
+    //         `https://api.themoviedb.org/3/search/tv?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&query=${param}&page=${page}&include_adult=false`
+    //       );
+    //       const movies = responseMovies.data.results.filter((movie) => movie.poster_path !== null);
+    //       const tvShows = responseTV.data.results.filter((show) => show.poster_path !== null);
+    //       const searchResults = [...movies, ...tvShows];
+    //       setSearchResults(prevResults => {
+    //         if (page === 1) {
+    //           return searchResults;
+    //         } else {
+    //           return [...prevResults, ...searchResults];
+    //         }
+    //       });
+    //     //   console.log(searchResults);
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   };
+    //   fetchSearchResults();
+    // }, [param, page]);
   
     // useEffect(() => {
     //     const intersectionObserver = new IntersectionObserver((entries) => {
@@ -110,4 +110,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export default SearchApp

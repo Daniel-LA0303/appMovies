@@ -20,7 +20,7 @@ import CategoriesSeries from './screens/Categories/CategoriesSeries';
 import { GlobalStateProvider } from './context/GlobalStateProvider';
 import Details from './screens/Details/Details';
 import CategoriesByParams from './screens/Categories/CategoriesByParams';
-import Search from './screens/Search/Search';
+import SearchApp from './screens/Search/SearchApp';
 
 
 function App() {
@@ -47,7 +47,7 @@ function App() {
               <Route path="categories-movies" element={<CategoriesMovies />} />
               <Route path="categories-series" element={<CategoriesSeries />} />
 
-              <Route path="search/:param" element={<Search />} />
+              <Route path="search/:param" element={<SearchApp />} />
 
 
             </Route>
