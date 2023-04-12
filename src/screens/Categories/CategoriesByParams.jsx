@@ -103,14 +103,14 @@ useEffect(() => {
             <Spinner />
         ) : (
             <div className='block sm:flex order-movies'>
-              <aside className='w-full sm:w-4/12 my-3 text-white mx-5'>
+              <aside className='w-full  sm:w-4/12 my-3 text-white px-3  sm:px-0 sm:mx-5'>
                   <Aside 
                         data={param === 'movie' ? genresHomeMovies : genresHomeTV }
                         movies={ tendingMovie}
                         title='Tending'
                   />
               </aside>   
-              <div className='w-full order-last mx-7'>
+              <div className='w-full order-last mx-0 sm:mx-7 '>
                   <div className='my-3'>  
                   <p className='mx-2 text-2xl sm:text-3xl text-white'>{id}</p>
                     <div className='my-3 mx-2'>  

@@ -1,0 +1,33 @@
+.img{
+    max-width: 100%;
+    /* display: block; */
+    /* border-radius: 10px; */
+    /* width: 180px; */
+    /* height: ; */
+}
+@media (max-width: 600px) {
+    .img{
+        /* width: 220px; */
+    }
+  }
+.data{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.data p{
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.card {
+    opacity: 1;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .card.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }

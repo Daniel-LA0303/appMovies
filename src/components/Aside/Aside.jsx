@@ -22,7 +22,7 @@ const Aside = ({data, movies, title}) => {
             ))}
         </div>
         <div className='border border-zinc-600 my-2'></div>
-        <div className='flex justify-between items-center mt-5'>
+        <div className='hidden sm:w-full flex justify-between items-center mt-5'>
             <p className=' text-lg'>{title}</p>
             <span>
                 <FontAwesomeIcon icon={faEllipsisV} />
@@ -30,7 +30,7 @@ const Aside = ({data, movies, title}) => {
             
         </div>
         
-        <ul>
+        <ul className='hidden sm:block'>
             {movies.map(ten => (
                 <CardMovieSmall 
                     key={ten.id}
@@ -41,7 +41,7 @@ const Aside = ({data, movies, title}) => {
 
         <Link
             to='/movies'
-            className='block text-center w-full border py-2 rounded-3xl bg-violet-800 hover:bg-violet-600 transition-all duration-100 border-zinc-600'
+            className='hidden sm:w-full sm:block text-center  border py-2 rounded-3xl bg-violet-800 hover:bg-violet-600 transition-all duration-100 border-zinc-600'
         >See more</Link>
     </div>
   )
