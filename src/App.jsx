@@ -26,7 +26,7 @@ import SearchApp from './screens/Search/SearchApp';
 function App() {
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <GlobalStateProvider>
         <Routes>
             <Route path="/" element={<Layout />}>
@@ -53,7 +53,7 @@ function App() {
             </Route>
         </Routes>
       </GlobalStateProvider>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
