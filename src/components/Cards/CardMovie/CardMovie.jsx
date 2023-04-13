@@ -11,6 +11,14 @@ import { resizeImage } from "../../../utils/utils";
 
 const CardMovie = ({ item }) => {
 
+  const { 
+    catsFilter,
+    setCatsFilter,
+    tabs,
+    selectedGenres,
+    setSelectedGenres
+} = useGlobal();
+
     const [genres, setGenres] = useState([])
 
     const route = useNavigate()
@@ -38,7 +46,11 @@ const CardMovie = ({ item }) => {
     }
 
     const directionCat = (id)=> {
-      route(`/${item.title ? 'categorie/movie' : 'categorie/serie'}/${id}`)
+
+      setCatsFilter([...catsFilter, id])
+      setSelectedGenres([...selectedGenres, id])
+
+      route(`/${item.title ? 'movies' : 'series'}`)
     }
 
   return (

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Spinner from '../../components/Spinner/Spinner';
 import useGlobal from '../../hooks/useGlobal';
 import { resizeImage } from '../../utils/utils';
@@ -15,11 +15,15 @@ const Details = () => {
         genresHomeTV,
         tendingMovie,
         tabs,
+        catsFilter,
+        setCatsFilter,
+        selectedGenres,
+        setSelectedGenres,
+        credentials
     } = useGlobal();
 
-
+    const route = useNavigate()
     const {id, details} = useParams();
-    const {credentials} = useGlobal()
 
     const [detailsParam, setDetailsParam] = useState({});
     const [credits, setCredits] =useState({})
@@ -27,6 +31,7 @@ const Details = () => {
     const [videos, setVideos] = useState({})
     const [similar, setSimilar] = useState({})
     const [loading, setLoading] = useState(true)
+    const [catsDir, setCatsDir] = useState([])
 
     const elem = useRef(null);
 
@@ -71,11 +76,24 @@ const Details = () => {
       detailsParams()
     }, [id])
 
-
+    useEffect(() => {
+      setCatsFilter([])
+    }, [])
+    
 
     const handleImageLoad = () => {
       setLoading(false);
     };
+
+    const directionCat = (id)=> {
+      setCatsFilter([...catsDir, id])
+      setSelectedGenres([...selectedGenres, id])
+      // setTimeout(() => {
+        route(`/${detailsParam.title ? 'movies' : 'series' }`)
+      // }, 3000)
+      
+    }
+    
     
 
   return (
@@ -111,12 +129,12 @@ const Details = () => {
                         <ul className="flex gap-3 flex-wrap md:mt-7 mt-3">
                           {detailsParam.genres.slice(0, 3).map((genre) => (
                             <li key={genre.id} className="mb-3">
-                              <Link
-                                to={`/categorie/${details === 'details-movie' ? 'movie' : 'serie'}/${genre.id}`}
-                                className="md:px-5 px-3 md:py-2 py-1 rounded-full uppercase font-medium border-2 border-violet-500 text-white hover:bg-violet-500 transition duration-300"
+                              <button
+                                onClick={() => directionCat(genre.id)}
+                                className="md:px-5 px-3 md:py-2 py-1 rounded-full uppercase font-medium border-2 border-violet-500 border-solid text-white hover:bg-violet-500 transition duration-300"
                               >
                                 {genre.name}
-                              </Link>
+                              </button>
                             </li>
                           ))}
                         </ul>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faClose, faRightToBracket, faUser, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/icon.png";
 
@@ -45,23 +45,47 @@ const NavBar = () => {
                     {/*Mobile navbar */}
                     <ul 
                         // dans cette part il y a un error avec le "duration-100" en version movil navbar
-                        className={`md:hidden dark fixed z-40 w-full h-full bottom-0 py-10 pl-4 
+                        className={`md:hidden flex justify-between flex-col dark fixed z-40 w-full h-full bottom-0 py-10 pl-4 
                         duration-100
                          ${
                             open ? " left-0" : "left-[-100%]"
                             }
                         `}
-                    >
-                        <li>
+                    >   
+                        <li className="flex flex-col">
                             <Link 
                                 to="/" 
-                                className="pt-10 pb-5 px-3 inline-block text-lg sm:text-xl text-emerald-500"
+                                className="pt-10 border-b border-zinc-400 pb-5 px-3 inline-block text-lg sm:text-xl text-emerald-500"
                                 onClick={() => stateNav()}
                             >
                                 Home
                             </Link>
+                            <Link 
+                                to="/movies" 
+                                className="pt-10 pb-5 px-3 border-b border-zinc-400 inline-block text-lg sm:text-xl text-emerald-500"
+                                onClick={() => stateNav()}
+                            >
+                                Movies
+                            </Link>
+                            <Link 
+                                to="/series" 
+                                className="pt-10 pb-5 px-3 border-b border-zinc-400 inline-block text-lg sm:text-xl text-emerald-500"
+                                onClick={() => stateNav()}
+                            >
+                                TV Shows
+                            </Link>
                         </li>
-                        <NavsLinks stateNav={stateNav}/>
+                        {/* <NavsLinks stateNav={stateNav}/> */}
+                        <div className='block sm:hidden mt-20' >
+                            <Link to={'/login'} className='text-base w-40 bg-violet-600 h-10 flex items-center justify-center rounded-lg mb-3 cursor-pointer hover:bg-violet-700 transition-all duration-100'>
+                                <FontAwesomeIcon icon={faUserCircle} className=' mr-2'/>
+                                <span className=' text-sm'>Sign in</span>
+                            </Link>
+                            <Link to={'/register'} className='text-base w-40 border-2 border-violet-600 h-10 flex items-center justify-center rounded-lg mb-3 cursor-pointer hover:border-violet-900 transition-all duration-100'>
+                                <FontAwesomeIcon icon={faRightToBracket} className=' mr-2'/>
+                                <span className=' text-sm'>Sign up</span>
+                            </Link>
+                        </div>
                 
                     </ul>
                 </div>
@@ -69,7 +93,10 @@ const NavBar = () => {
         </div>
         <div className="flex justify-between items-center w-auto">
             <Search />
-            <ProfileButton />
+            <div className="hidden sm:block">
+                <ProfileButton />
+            </div>
+           
         </div>
       </div>
     </nav>

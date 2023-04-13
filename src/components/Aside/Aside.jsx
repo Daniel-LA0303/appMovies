@@ -12,7 +12,7 @@ const Aside = ({data, movies, title}) => {
     
 
   return (
-    <div className='sticky top-5'>
+    <div className='sticky top-5 hidden sm:block '>
         <div className=' flex flex-wrap'>
             {data ? 
                 data.map(gen => (
@@ -25,7 +25,7 @@ const Aside = ({data, movies, title}) => {
             }
         </div>
         <div className='border border-zinc-600 my-2'></div>
-        <div className='hidden sm:w-full flex justify-between items-center mt-5'>
+        <div className='flex justify-between items-center mt-5'>
             <p className=' text-lg'>{title}</p>
             <span>
                 <FontAwesomeIcon icon={faEllipsisV} />

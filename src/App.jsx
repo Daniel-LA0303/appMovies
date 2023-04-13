@@ -36,19 +36,19 @@ function App() {
               <Route index element={<Home />}/>
 
               <Route path="movies" element={<Movies />} />
-              <Route path="movies-popular" element={<MoviesPopular />} />
-              <Route path="movies-comming-soon" element={<MovieCommingSoon />} />
+              {/* <Route path="movies-popular" element={<MoviesPopular />} /> */}
+              {/* <Route path="movies-comming-soon" element={<MovieCommingSoon />} /> */}
 
               <Route path="/:details/:id" element={<Details />} />
-              <Route path="/categorie/:param/:id" element={<CategoriesByParams />} />              
+              {/* <Route path="/categorie/:param/:id" element={<CategoriesByParams />} />               */}
 
               <Route path="series" element={<Series/>} />
-              <Route path="series-popular" element={<SeriesPopulare />} />
-              <Route path="new-series" element={<SeriesNew />} />
+              {/* <Route path="series-popular" element={<SeriesPopulare />} /> */}
+              {/* <Route path="new-series" element={<SeriesNew />} /> */}
 
               <Route path="categories" element={<Categories />} />
-              <Route path="categories-movies" element={<CategoriesMovies />} />
-              <Route path="categories-series" element={<CategoriesSeries />} />
+              {/* <Route path="categories-movies" element={<CategoriesMovies />} /> */}
+              {/* <Route path="categories-series" element={<CategoriesSeries />} /> */}
 
               <Route path="all/:param" element={<SearchApp />} />
 {/* 

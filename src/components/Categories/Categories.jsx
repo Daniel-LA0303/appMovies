@@ -20,7 +20,7 @@ const directionCat = (id)=> {
   // setTimeout(() => {
     route(`/${tabs ? 'movies' : 'series' }`)
   // }, 3000);
-  
+
   
 }
 

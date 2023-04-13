@@ -22,7 +22,7 @@ const NavsLinks = ({stateNav}) => {
                         to={link.linkName}
                         onClick={() => stateNav()}
                     >{link.name}</Link>
-                    <span
+                    {/* <span
                         className=' text-xl md:hidden inline'
                         onClick={() => {heading !== link.name 
                             ? setHeading(link.name)
@@ -36,7 +36,7 @@ const NavsLinks = ({stateNav}) => {
                         className='md:mt-1 md:ml-2  md:block hidden group-hover:rotate-180 duration-500'
                     >
                         <FontAwesomeIcon icon={faChevronDown}/>
-                    </span>
+                    </span> */}
                 </h1>
                 
                 {link.submenu && (

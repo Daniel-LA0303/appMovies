@@ -81,6 +81,7 @@ const SearchApp = () => {
             <div className='w-full order-last mx-0 sm:mx-7 '>
                 <div className='my-3'>  
                     <div className='my-3 mx-2'>  
+                        <p className=' text-white text-2xl my-5'>Results to: <span className=' text-3xl text-zinc-400'>{param}</span></p>
                         <TransitionGroup className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-8 gap-2 sm:gap-4">
                                 {searchResults.map((result) => (
                                     <CSSTransition key={result.id} timeout={500} classNames="fade">
