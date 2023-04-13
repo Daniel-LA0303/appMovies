@@ -89,7 +89,7 @@ const CategoriesByParams = () => {
     } else {
       fetchMovies();
     }
-  }, [genreId, page, id]);
+  }, [genreId, page]);
 
   useEffect(() => {
     setMovies([]);
