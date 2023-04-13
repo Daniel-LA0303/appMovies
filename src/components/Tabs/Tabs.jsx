@@ -5,6 +5,7 @@ import useGlobal from "../../hooks/useGlobal";
 import SliderBackdrop from "../Slider/SliderBackdrop/SliderBackdrop";
 import Slider from "../Slider/SliderPath/SliderPath";
 import "./Tabs.css";
+import SliderPrincipal from "../Slider/SliderBackdrop/SliderPrincipal";
 
 const Tabs = () => {
 
@@ -13,17 +14,15 @@ const Tabs = () => {
         popular,
         upcoming,
         topRated,
-        isLoadingMovie,
         nowPlayingTV, 
         topRatedTV, 
         popularTV,
-        isLoadingTV,
-        isLoadingCat,
-        genresHome,
-        tendingMovie,
         tabs,
         setTabs
     } = useGlobal();
+
+    // console.log(nowPlaying);
+    // 502356
 
 
   return (
@@ -49,7 +48,7 @@ const Tabs = () => {
             <div className="panels">
                 <div className="panel" id="one-panel">
                     <div className='w-full'>
-                        <SliderBackdrop data={nowPlaying} />
+                        <SliderPrincipal data={nowPlaying} delay={3000}/>
                     </div>
                     <div className='w-full sm:mx-auto text-white'>            
                         <div className=' mt-10 mb-2'>

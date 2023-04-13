@@ -35,3 +35,8 @@
     background-color: rgb(255, 255, 255);
     opacity: 1;
 }
+
+.swiperContainerBig .swiper-slide { 
+    width: 100%;
+    height: auto; 
+  }

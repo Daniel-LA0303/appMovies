@@ -16,22 +16,22 @@ const CardMovie = ({ item }) => {
     const route = useNavigate()
     const {credentials} = useGlobal()
     const uriImage = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
+    // console.log(item.id);
 
     useEffect(() => {
-      const getDeatils = async () => {
-        let res
-        if(item.title){
-          res = await axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=${credentials.api_key}&language=en-US`)
-        }else if(item.name){
-          res = await axios.get(`https://api.themoviedb.org/3/tv/${item.id}?api_key=${credentials.api_key}&language=en-US`)
+      const getDetails = async () => {
+        let res;
+        if (item.title) {
+          res = await axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=${credentials.api_key}&language=en-US`);
+        } else if (item.name) {
+          res = await axios.get(`https://api.themoviedb.org/3/tv/${item.id}?api_key=${credentials.api_key}&language=en-US`);
         }
-        
+    
         setGenres(res.data.genres);
-      }
-
-      getDeatils()
-
-    }, [])
+      };
+    
+      getDetails();
+    }, [item.id]);
 
     const directionPage = (id)=> {
       route(`/${item.title ? 'details-movie' : 'details-serie'}/${id}`)

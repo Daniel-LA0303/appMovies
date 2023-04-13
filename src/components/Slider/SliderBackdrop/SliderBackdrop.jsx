@@ -71,16 +71,18 @@ const SliderBackdrop = ({data}) => {
       }
   return (
     <div className='mx-0'>
-        <Slider {...settings}>
-        {data.map(item => (
+      {data.map(item => (
+        <Slider {...settings} key={item.id}>
+        
           <div 
             className=''
-            key={item.id}
+            
           >
-            <CardMovie item={item}/>
+            <CardMovie item={item} id={item.id}/>
         </div>
-       ))}
+       
       </Slider>
+      ))}
     </div>
   )
 }
