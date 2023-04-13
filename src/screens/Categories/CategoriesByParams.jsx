@@ -118,7 +118,10 @@ useEffect(() => {
                         { 
                           movies.map(item => (
                             <CSSTransition key={item.id} timeout={500} classNames="fade">
-                              <CardMT item={item} />
+                              <CardMT 
+                                item={item} 
+                                series={param === 'movie' ? false : true}
+                              />
                             </CSSTransition>
                           )) 
                         }

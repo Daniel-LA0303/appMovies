@@ -68,10 +68,6 @@ const TabsCats = () => {
                             />
                         ))}
                     </div>
-                
-                    <div className=' mb-2'>
-                        <h1 className='font-light text-3xl'>Estrenadas</h1>
-                    </div>
                 </div>
             </div>
         </div>

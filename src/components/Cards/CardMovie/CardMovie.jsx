@@ -6,6 +6,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 //hooks
 import useGlobal from "../../../hooks/useGlobal";
+import { resizeImage } from "../../../utils/utils";
 
 
 const CardMovie = ({ item }) => {
@@ -45,7 +46,7 @@ const CardMovie = ({ item }) => {
       <div 
         className="movie_card my-5 mx-auto rounded bg-cover"
         style={{ 
-            backgroundImage: `url(https://image.tmdb.org/t/p/w500${item.backdrop_path})`,
+            backgroundImage: `url(${resizeImage(item.backdrop_path)})`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'right',
             backgroundAttachment: 'fixed',

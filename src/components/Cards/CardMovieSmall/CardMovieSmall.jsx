@@ -11,7 +11,7 @@ const CardMovieSmall = ({ten}) => {
 
     const directionPage = (id)=> {
         route(`/${ten.title ? 'details-movie' : 'details-serie'}/${id}`)
-      }
+    }
 
   return (
     <li className=' w-full my-5 flex flex-wrap text-sm '>
@@ -33,7 +33,7 @@ const CardMovieSmall = ({ten}) => {
                         icon={faStar} 
                         className=' mr-2'
                     />
-                    <span className=''>{ten.vote_average}</span>
+                    <span className=''>{ten.vote_average.toFixed(1)}</span>
                 </p>
             </div>
             <p>{ten.release_date ? ten.release_date : ten.first_air_date}</p>

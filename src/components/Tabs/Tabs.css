@@ -9,7 +9,6 @@ h2{
   font-size:2em;
 }
 .warpper{
-  display:flex;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -56,11 +55,13 @@ h2{
   display:none;
 }
 #one:checked ~ .panels #one-panel,
-#two:checked ~ .panels #two-panel{
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel{
   display:block
 }
 #one:checked ~ .tabs #one-tab,
-#two:checked ~ .tabs #two-tab{
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab{
   /* background-color: rgb(113 113 122); */
   border-radius: 3px 3px;
   color: white;

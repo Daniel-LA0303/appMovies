@@ -18,9 +18,9 @@ const FilterByCat = ({movies}) => {
 
     const [filter] = useAutoAnimate();
     
-    const [openFilter, setOpenFilter] = useState(false);
+    const [openFilter, setOpenFilter] = useState(true);
     useEffect(() => { 
-      setOpenFilter(false)
+      setOpenFilter(true)
     }, [])
 
     const toggleGenreSelection = (id) => {

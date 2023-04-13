@@ -15,7 +15,7 @@ const FilterByType = ({movies}) => {
     const [filter] = useAutoAnimate();  
     const [openFilter, setOpenFilter] = useState(false);
     useEffect(() => { 
-      setOpenFilter(false)
+      setOpenFilter(true)
     }, [])
 
     const options = [

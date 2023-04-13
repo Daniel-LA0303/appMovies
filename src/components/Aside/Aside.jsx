@@ -14,12 +14,15 @@ const Aside = ({data, movies, title}) => {
   return (
     <div className='sticky top-5'>
         <div className=' flex flex-wrap'>
-            {data.map(gen => (
-                <Categories 
-                    key={gen.id}
-                    cat={gen}
-                />
-            ))}
+            {data ? 
+                data.map(gen => (
+                    <Categories 
+                        key={gen.id}
+                        cat={gen}
+                    />
+                ))
+                : null
+            }
         </div>
         <div className='border border-zinc-600 my-2'></div>
         <div className='hidden sm:w-full flex justify-between items-center mt-5'>
