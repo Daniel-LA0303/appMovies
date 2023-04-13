@@ -75,26 +75,26 @@ const CategoriesByParams = () => {
   const genre = (param === "movie") ? genresMovies.find((g) => g.name.toLowerCase() === id.toLowerCase()) : genresTV.find((g) => g.name.toLowerCase() === id.toLowerCase());
   const genreId = genre ? genre.id : null;
 
-const fetchMoviesByGenre = async (genreId) => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/discover/${param === 'movie' ? 'movie' : 'tv'}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=${page}&with_genres=${genreId}`
-  );
-  setMovies((prevMovies) => [...prevMovies, ...response.data.results]);
-  setTotalPages(response.data.total_pages);
-};
+  const fetchMoviesByGenre = async (genreId) => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/discover/${param === 'movie' ? 'movie' : 'tv'}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=${page}&with_genres=${genreId}`
+    );
+    setMovies((prevMovies) => [...prevMovies, ...response.data.results]);
+    setTotalPages(response.data.total_pages);
+  };
 
-useEffect(() => {
-  if (genreId) {
-    fetchMoviesByGenre(genreId);
-  } else {
-    fetchMovies();
-  }
-}, [genreId, page]);
+  useEffect(() => {
+    if (genreId) {
+      fetchMoviesByGenre(genreId);
+    } else {
+      fetchMovies();
+    }
+  }, [genreId, page, id]);
 
-useEffect(() => {
-  setMovies([]);
-  setPage(1);
-}, [id]);
+  useEffect(() => {
+    setMovies([]);
+    setPage(1);
+  }, [id]);
 
   
   return (
