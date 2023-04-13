@@ -25,6 +25,9 @@ const GlobalStateProvider = ({children}) => {
   const [catsFilter, setCatsFilter] = useState([])
   const [selectedGenres, setSelectedGenres] = useState([]);
 
+  const [catsFilterSerie, setCatsFilterSerie] = useState([])
+  const [selectedGenresSerie, setSelectedGenresSerie] = useState([]);
+
   //Hooks
   const { nowPlaying, popular, upcoming, topRated, isLoadingMovie} = useMovies();
   const {nowPlayingTV, topRatedTV, popularTV, isLoadingTV} = useTVShows();
@@ -86,10 +89,16 @@ const GlobalStateProvider = ({children}) => {
         tabs,
         filterState,
         setFilterState,
+        //
         catsFilter,
         setCatsFilter,
         selectedGenres,
-        setSelectedGenres
+        setSelectedGenres,
+        //
+        catsFilterSerie,
+        setCatsFilterSerie,
+        selectedGenresSerie,
+        setSelectedGenresSerie
       }}
     >
       {children}

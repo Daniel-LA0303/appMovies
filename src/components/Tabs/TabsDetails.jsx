@@ -59,7 +59,7 @@ const TabsDetails = ({ info, credits, reviews }) => {
         </div>
         <div className="panel mx-5 " id="two-panel">
             <div className='mt-10 mb-2 grid grid-cols-1 sm:grid-cols-2 gap-4'>
-                {credits.cast.slice(0, 8).map(c => (
+                {credits.map(c => (
                      <div className="max-w-xs flex items-center bg-zinc-700 rounded-md">
                         <div>
                             <img

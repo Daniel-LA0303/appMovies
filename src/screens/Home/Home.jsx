@@ -49,7 +49,7 @@ const Home = () => {
                 <aside className='hidden md:block w-4/12 my-5 mx-5 text-white '>
                     <Aside 
                         data={tabs ? genresHomeMovies : genresHomeTV }
-                        movies={ tendingMovie}
+                        movies={tabs ? tendingMovie : tendingTV}
                         title='Tending'
                     />
                 </aside>

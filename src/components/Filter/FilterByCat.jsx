@@ -9,10 +9,15 @@ const FilterByCat = ({movies}) => {
     const {
       genresMovies,
       genresTV,
+      catsFilter,
       setCatsFilter,
-      catsFilter,      
       selectedGenres,
-      setSelectedGenres
+      setSelectedGenres,
+      //
+      // catsFilterSerie,
+      setCatsFilterSerie,
+      selectedGenresSerie,
+      setSelectedGenresSerie
     } = useGlobal();
 
 
@@ -24,16 +29,30 @@ const FilterByCat = ({movies}) => {
     }, [])
 
     const toggleGenreSelection = (id) => {
-      setSelectedGenres((prevSelectedGenres) =>
-        prevSelectedGenres.includes(id)
-          ? prevSelectedGenres.filter((genreId) => genreId !== id)
-          : [...prevSelectedGenres, id]
-      );
-      setCatsFilter((prevSelectedGenres) =>
-        prevSelectedGenres.includes(id)
-          ? prevSelectedGenres.filter((genreId) => genreId !== id)
-          : [...prevSelectedGenres, id]
-      );
+      if(movies){
+        setSelectedGenres((prevSelectedGenres) =>
+          prevSelectedGenres.includes(id)
+            ? prevSelectedGenres.filter((genreId) => genreId !== id)
+            : [...prevSelectedGenres, id]
+        );
+        setCatsFilter((prevSelectedGenres) =>
+          prevSelectedGenres.includes(id)
+            ? prevSelectedGenres.filter((genreId) => genreId !== id)
+            : [...prevSelectedGenres, id]
+        );
+      }else{
+        setSelectedGenresSerie((prevSelectedGenres) =>
+          prevSelectedGenres.includes(id)
+            ? prevSelectedGenres.filter((genreId) => genreId !== id)
+            : [...prevSelectedGenres, id]
+        );
+        setCatsFilterSerie((prevSelectedGenres) =>
+          prevSelectedGenres.includes(id)
+            ? prevSelectedGenres.filter((genreId) => genreId !== id)
+            : [...prevSelectedGenres, id]
+        );
+      }
+
     
     };
     
@@ -76,7 +95,7 @@ const FilterByCat = ({movies}) => {
                       <button
                         onClick={() => toggleGenreSelection(genre.id)}
                         className={`px-4 py-1 border border-violet-500 rounded-full hover:brightness-75 transition duration-300 inline-block 
-                        ${        selectedGenres.includes(genre.id)
+                        ${        selectedGenresSerie.includes(genre.id)
                           ? 'bg-violet-500 '
                           : ''}
                         `

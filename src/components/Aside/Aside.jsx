@@ -1,5 +1,5 @@
 import React from 'react'
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faBatteryEmpty, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //Components
@@ -9,10 +9,11 @@ import { Link } from 'react-router-dom';
 
 const Aside = ({data, movies, title}) => {
 
-    
 
   return (
-    <div className='sticky top-5 hidden sm:block '>
+    <>
+    {movies.length > 0 ?  (
+        <div className='sticky top-5 hidden sm:block '>
         <div className=' flex flex-wrap'>
             {data ? 
                 data.map(gen => (
@@ -42,11 +43,23 @@ const Aside = ({data, movies, title}) => {
             ))}
         </ul>
 
+
         <Link
-            to='/movies'
+            to={movies[0].title ? '/movies' : '/series'}
             className='hidden sm:w-full sm:block text-center  border py-2 rounded-3xl bg-violet-800 hover:bg-violet-600 transition-all duration-100 border-zinc-600'
         >See more</Link>
     </div>
+    ) : <>
+            <div className='sticky top-5 hidden sm:block '>
+            {/* <span>
+                <FontAwesomeIcon icon={faBatteryEmpty} />
+            </span> */}
+                <p className='text-center mt-5'>No data</p>
+            </div>
+        </> 
+    }
+    </>
+    
   )
 }
 

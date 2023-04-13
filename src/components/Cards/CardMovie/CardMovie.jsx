@@ -14,9 +14,13 @@ const CardMovie = ({ item }) => {
   const { 
     catsFilter,
     setCatsFilter,
-    tabs,
     selectedGenres,
-    setSelectedGenres
+    setSelectedGenres,
+    //tabs,
+    catsFilterSerie,
+    setCatsFilterSerie,
+    selectedGenresSerie,
+    setSelectedGenresSerie,
 } = useGlobal();
 
     const [genres, setGenres] = useState([])
@@ -46,9 +50,15 @@ const CardMovie = ({ item }) => {
     }
 
     const directionCat = (id)=> {
+      if(item.title){
+        setCatsFilter([...catsFilter, id])
+        setSelectedGenres([...selectedGenres, id])
+      }else{
+        setCatsFilterSerie([...catsFilterSerie, id])
+        setSelectedGenresSerie([...selectedGenresSerie, id])
+      }
 
-      setCatsFilter([...catsFilter, id])
-      setSelectedGenres([...selectedGenres, id])
+
 
       route(`/${item.title ? 'movies' : 'series'}`)
     }

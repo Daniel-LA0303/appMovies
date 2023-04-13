@@ -14,6 +14,7 @@ const Movies = () => {
     isLoadingCat,
     setFilterState,
     filterState,
+    //
     setCatsFilter,
     catsFilter,
     setSelectedGenres
@@ -23,16 +24,10 @@ const Movies = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isFetching, setIsFetching] = useState(false);
-  
-  useEffect(() => {
-    setCatsFilter([])
-    setSelectedGenres([])
-  }, [])
+
 
   const loadMoreMovies = async () => {
-    console.log('entro');
     if (page < totalPages ) {
-      console.log('entro2');
       setIsFetching(true);
       let response = null;
       if (catsFilter.length === 0) {
@@ -105,19 +100,10 @@ const Movies = () => {
     const bottomOfPage = visibleHeight + scrollY >= pageHeight;
   
     if (bottomOfPage && !isFetching) {
-      console.log('load more movies');
       setIsFetching(true);
     }
-    // console.log('scrolling'); // Agregar este console.log
-    // console.log(totalPages);
   };
   
-
-  // useEffect(() => {
-  //   if (isFetching) {
-  //     loadMoreMovies();
-  //   }
-  // }, [isFetching]);
 
   const fetchMovies = async () => {
     const response = await axios.get(

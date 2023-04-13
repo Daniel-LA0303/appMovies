@@ -12,9 +12,10 @@ const Series = () => {
     isLoadingCat,
     setFilterState,
     filterState,
-    setCatsFilter,
-    catsFilter,
-    setSelectedGenres
+    //
+    setCatsFilterSerie,
+    catsFilterSerie,
+    setSelectedGenresSerie
   } = useGlobal();
 
   const [movies, setMovies] = useState([]);
@@ -22,24 +23,18 @@ const Series = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [isFetching, setIsFetching] = useState(false);
   
-  useEffect(() => {
-    setCatsFilter([])
-    setSelectedGenres([])
-  }, [])
 
   const loadMoreMovies = async () => {
-    console.log('entro');
     if (page < totalPages ) {
-      console.log('entro2');
       setIsFetching(true);
       let response = null;
-      if (catsFilter.length === 0) {
+      if (catsFilterSerie.length === 0) {
         response = await axios.get(
           `https://api.themoviedb.org/3/tv/${filterState.value}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=${page + 1}`
         );
       } else {
         response = await axios.get(
-          `https://api.themoviedb.org/3/discover/tv?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&sort_by=${filterState.value}&include_adult=false&include_video=false&page=${page + 1}&with_genres=${catsFilter.join(',')}`
+          `https://api.themoviedb.org/3/discover/tv?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&sort_by=${filterState.value}&include_adult=false&include_video=false&page=${page + 1}&with_genres=${catsFilterSerie.join(',')}`
         );
       }
       const newMovies = response.data.results.filter((movie) => movie.poster_path !== null && movie.backdrop_path !== null);
@@ -74,17 +69,17 @@ const Series = () => {
     // setMovies([]);
     const fetchFilteredMovies = async () => {
       let filteredMovies = [];
-      if (catsFilter.length === 0) {
+      if (catsFilterSerie.length === 0) {
         filteredMovies = await fetchMovies();
       } else {
-        filteredMovies = await fetchFilteredMoviesByCategoryAndSort(catsFilter, filterState.value);
+        filteredMovies = await fetchFilteredMoviesByCategoryAndSort(catsFilterSerie, filterState.value);
       }
       const newMovies = filteredMovies.filter((movie) => movie.poster_path !== null && movie.backdrop_path !== null);
       setMovies(newMovies);
     };
     fetchFilteredMovies();
     window.scrollTo(0, 0); 
-  }, [catsFilter, filterState]);
+  }, [catsFilterSerie, filterState]);
 
   useEffect(() => {
     setFilterState({
@@ -100,19 +95,10 @@ const Series = () => {
     const bottomOfPage = visibleHeight + scrollY >= pageHeight;
   
     if (bottomOfPage && !isFetching) {
-      console.log('load more movies');
       setIsFetching(true);
     }
-    // console.log('scrolling'); // Agregar este console.log
-    // console.log(totalPages);
   };
   
-
-  // useEffect(() => {
-  //   if (isFetching) {
-  //     loadMoreMovies();
-  //   }
-  // }, [isFetching]);
 
   const fetchMovies = async () => {
     const response = await axios.get(

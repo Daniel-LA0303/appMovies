@@ -19,6 +19,9 @@ const Details = () => {
         setCatsFilter,
         selectedGenres,
         setSelectedGenres,
+        setCatsFilterSerie,
+        selectedGenresSerie,
+        setSelectedGenresSerie,
         credentials
     } = useGlobal();
 
@@ -65,20 +68,30 @@ const Details = () => {
           similar
         ])
         setLoading(false)
-        setCredits(res[1].data)
+        const newCreditsRe = res[1].data.cast;
+        const newCredits = newCreditsRe.filter(movie => movie.profile_path).slice(0, 8);
+        setCredits(newCredits)
         setDetailsParam(res[0].data);
         setReviews(res[2].data)
         setVideos(res[3].data)
-        setSimilar(res[4].data)
-        console.log(res);
+        const newSimilarRe = res[4].data.results;
+        const newSimilar = newSimilarRe.filter(movie => movie.poster_path && movie.backdrop_path).slice(0, 3);
+        setSimilar(newSimilar)
       }
 
       detailsParams()
     }, [id])
 
     useEffect(() => {
-      setCatsFilter([])
-    }, [])
+      if(detailsParam.title){
+        setCatsFilter([])
+        setSelectedGenres([])
+      }else{
+        setCatsFilterSerie([])
+        setSelectedGenresSerie([])
+      }
+
+    }, [detailsParam.title])
     
 
     const handleImageLoad = () => {
@@ -86,8 +99,14 @@ const Details = () => {
     };
 
     const directionCat = (id)=> {
-      setCatsFilter([...catsDir, id])
-      setSelectedGenres([...selectedGenres, id])
+      if(detailsParam.title){
+        setCatsFilter([...catsDir, id])
+        setSelectedGenres([...selectedGenres, id])
+      }else{
+        setCatsFilterSerie([...catsDir, id])
+        setSelectedGenresSerie([...selectedGenresSerie, id])
+      }
+      
       // setTimeout(() => {
         route(`/${detailsParam.title ? 'movies' : 'series' }`)
       // }, 3000)
@@ -170,6 +189,7 @@ const Details = () => {
                   </div>
                 </div>
                 <div className='w-full md:w-3/12 md:order-3 mx-0 md:mx-3'>
+                <p className='mb-5 text-center text-white text-3xl md:text-2xl'>Media</p>
                   {videos.results.slice(0,2).map((video) => (
                     <div key={video.id} className='my-4 flex justify-center items-center'>
                       <div className="aspect-w-16 aspect-h-9">
@@ -188,7 +208,7 @@ const Details = () => {
               <aside className='hidden md:block w-2/12 text-white mx-3 mb-4'>
                     <Aside 
                         data={false }
-                        movies={similar.results.slice(0,3)}
+                        movies={similar}
                         title='Similar'
                     />
               </aside>
