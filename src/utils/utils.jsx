@@ -7,9 +7,9 @@ export const resizeImage = (imageUrl, options = {}) => {
   let imageSize = "original";
 
   if (width < 400) {
-    imageSize = options.mobile || "w185";
+    imageSize = options.mobile || "w780";
   } else if (width < 768) {
-    imageSize = options.tablet || "w500";
+    imageSize = options.tablet || "w780";
   } else if (width < 1280) {
     imageSize = options.desktop || "w780";
   } else {
