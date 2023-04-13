@@ -70,7 +70,7 @@ const Tabs = () => {
                 <div className="panel" id="two-panel">
                     {/* <div className="panel-title">Take-Away Skills</div> */}
                     <div className='w-full'>
-                        <SliderBackdrop data={nowPlayingTV} />
+                    <SliderPrincipal data={nowPlayingTV} delay={3000}/>
                     </div>
                     <div className='mt-10 mb-2'>
                         <h1 className='font-light text-3xl'>Top Rated TV</h1>
