@@ -9,6 +9,7 @@ import Tabs from '../../components/Tabs/Tabs';
 
 //hooks
 import useGlobal from '../../hooks/useGlobal';
+import Footer from '../../components/Layout/Footer';
 
 const Home = () => {
 
@@ -39,22 +40,27 @@ const Home = () => {
         {(isLoadingCat || isLoadingMovie) ? (
             <Spinner />
         ) : (
-            <div className='flex justify-center w-full '>
+            <>
+                <div className='flex justify-center w-full '>
                 
-                <div className='w-full md:w-8/12 mx-5'>
-                    <div className=' mx-2 sm:mx-0 mt-3'>
-                        <Tabs />
-                    </div> 
+                    <div className='w-full md:w-8/12 mx-5'>
+                        <div className=' mx-2 sm:mx-0 mt-3'>
+                            <Tabs />
+                        </div> 
+                    </div>
+                    <aside className='hidden md:block w-4/12 my-5 mx-5 text-white '>
+                        <Aside 
+                            data={tabs ? genresHomeMovies : genresHomeTV }
+                            movies={tabs ? tendingMovie : tendingTV}
+                            title='Tending'
+                        />
+                    </aside>
+                
                 </div>
-                <aside className='hidden md:block w-4/12 my-5 mx-5 text-white '>
-                    <Aside 
-                        data={tabs ? genresHomeMovies : genresHomeTV }
-                        movies={tabs ? tendingMovie : tendingTV}
-                        title='Tending'
-                    />
-                </aside>
-                
-            </div>
+                <Footer />
+            </>
+
+
         )}
     </>
     
