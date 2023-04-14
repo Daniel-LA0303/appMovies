@@ -1,4 +1,4 @@
-# Proyecto Bienes Raices
+# Project appMovies
 
 ## Execution
     npm i: install dependencies
